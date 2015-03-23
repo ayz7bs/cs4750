@@ -1,6 +1,6 @@
 This project is to design a web application for creating and searching for smoothies.
 
-Memebers
+Members
 
 * Christine Danzi
 * Megan Joyner
