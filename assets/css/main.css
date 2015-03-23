@@ -409,4 +409,9 @@ a:after {
     background: #ff7878;
 }
 
+.center {
+	margin-left: auto; 
+	margin-right: auto;
+}
+
 
