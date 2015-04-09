@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!session_is_registered(myusername)){
+header("location:login.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,8 +15,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/ico/favicon.png">
-
-    <title>SQ - ABOUT</title>
+	
+    <title>Smoothie Queens</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -16,8 +24,10 @@
 
     <!-- Custom styles for this template -->
     <link href="assets/css/main.css" rel="stylesheet">
-
-	<script src="assets/js/Chart.js"></script>
+    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -42,8 +52,8 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.php">HOME</a></li>
-            <li class="active"><a href="about.html">ABOUT</a></li>
+            <li class="active"><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
             <li><a href="search.html">SEARCH</a></li>
             <li><a href="create.html">CREATE</a></li>
             <li><a href="profile.php">PROFILE</a></li>
@@ -54,49 +64,40 @@
       </div>
     </div>
 
-	<div id="blue">
+	<div id="headerwrap">
 		<div class="container">
 			<div class="row centered">
 				<div class="col-lg-8 col-lg-offset-2">
-				<h4>LEARN MORE ABOUT THE SMOOTHIE QUEENS</h4>
-				<p>WE ARE COOL PEOPLE</p>
+				<h1> <b>Smoothie Queens</b></h1>
+				<h2></h2>
+				<h2>A Yummy Search Engine</h2>
 				</div>
 			</div><!-- row -->
 		</div><!-- container -->
-	</div><!--  bluewrap -->
-
+	</div><!-- headerwrap -->
+	<div>
+	</div>
 
 	<div class="container w">
 		<div class="row centered">
 			<br><br>
-			<div class="col-lg-3">
-				<img class="img-circle" src="assets/img/pic.jpg" width="110" height="110" alt="">
-				<h4>Christine Danzi</h4>
-				<p><strong>Favorite Smoothie</strong><br> Peanut Butter Protein. Cause Chocolate.</p>
-				<p><a href="#">@Choco_Holic</a></p>
-			</div><!-- col-lg-3 -->
+			<div class="col-lg-4">
+				<i class="fa fa-heart"></i>
+				<h4>HEART HEALTH</h4>
+				<p>Nutritional info for all smoothies is provied. Find something yummy and healthy!</p>
+			</div><!-- col-lg-4 -->
 
-			<div class="col-lg-3">
-				<img class="img-circle" src="assets/img/pic2.jpg" width="110" height="110" alt="">
-				<h4>Ami Jagodara</h4>
-				<p><strong>Favorite Smoothie</strong><br> Are there any with mint?</p>
-				<p><a href="#">@Mint_2Be</a></p>
-			</div><!-- col-lg-3 -->
+			<div class="col-lg-4">
+				<i class="fa fa-laptop"></i>
+				<h4>SEARCH</h4>
+				<p>Find whatever smoothie you may be craving for using our amazing smoothie database.</p>
+			</div><!-- col-lg-4 -->
 
-			<div class="col-lg-3">
-				<img class="img-circle" src="assets/img/pic3.jpg" width="110" height="110" alt="">
-				<h4>Megan Joyner</h4>
-				<p><strong>Favorite Smoothie</strong><br> Everything with onion and chive. Oh wait, you said smoothie...</p>
-				<p><a href="#">@Yo_True</a></p>
-			</div><!-- col-lg-3 -->
-
-			<div class="col-lg-3">
-				<img class="img-circle" src="assets/img/pic4.jpg" width="110" height="110" alt="">
-				<h4>Alice Zhang</h4>
-				<p><strong>Favorite Smoothie</strong><br> Ever have an avocado smoothie? That's pretty good.</p>
-				<p><a href="#">@Dance_Life</a></p>
-			</div><!-- col-lg-3 -->
-
+			<div class="col-lg-4">
+				<i class="fa fa-trophy"></i>
+				<h4>RATE</h4>
+				<p>Rate or create. Have a homemade smoothie of your own? Share it on our system.</p>
+			</div><!-- col-lg-4 -->
 		</div><!-- row -->
 		<br>
 		<br>
@@ -107,108 +108,77 @@
 	<div id="dg">
 		<div class="container">
 			<div class="row centered">
-				<h4>SMOOTHES = LIFE</h4>
+				<h4>SMOOTHIES = LIFE</h4>
+				<!--
 				<br>
-				
-			<!-- First Chart -->
-			<!--
-			<div class="col-lg-3">
-				<canvas id="canvas" height="130" width="130"></canvas>
-				<br>
-				<script>
-					var doughnutData = [
-							{
-								value: 70,
-								color:"#3498db"
-							},
-							{
-								value : 30,
-								color : "#ecf0f1"
-							}
-						];
-						var myDoughnut = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(doughnutData);
-				</script>
-				<p><b>Design & Brand</b></p>
-				<p><small>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</small></p>
-			</div><!-- /col-lg-3 -->
+				<div class="col-lg-4">
+					<div class="tilt">
+					<a href="#"><img src="assets/img/p01.png" alt=""></a>
+					</div>
+				</div>
 
-			<!-- Second Chart -->
-			<!--<div class="col-lg-3">
-				<canvas id="canvas2" height="130" width="130"></canvas>
-				<br>
-				<script>
-					var doughnutData = [
-							{
-								value: 90,
-								color:"#3498db"
-							},
-							{
-								value : 10,
-								color : "#ecf0f1"
-							}
-						];
-						var myDoughnut = new Chart(document.getElementById("canvas2").getContext("2d")).Doughnut(doughnutData);
-				</script>
-				<p><b>Web Development</b></p>
-				<p><small>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</small></p>
-			</div><!-- /col-lg-3 -->
-			
-			<!-- Third Chart -->
-			<!--<div class="col-lg-3">
-				<canvas id="canvas3" height="130" width="130"></canvas>
-				<br>
-				<script>
-					var doughnutData = [
-							{
-								value: 50,
-								color:"#3498db"
-							},
-							{
-								value : 50,
-								color : "#ecf0f1"
-							}
-						];
-						var myDoughnut = new Chart(document.getElementById("canvas3").getContext("2d")).Doughnut(doughnutData);
-				</script>
-				<p><b>Seo Services</b></p>
-				<p><small>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</small></p>
-			</div><!-- /col-lg-3 -->
-			
-			<!-- Fourth Chart -->
-			<!--<div class="col-lg-3">
-				<canvas id="canvas4" height="130" width="130"></canvas>
-				<br>
-				<script>
-					var doughnutData = [
-							{
-								value: 80,
-								color:"#3498db"
-							},
-							{
-								value : 20,
-								color : "#ecf0f1"
-							}
-						];
-						var myDoughnut = new Chart(document.getElementById("canvas4").getContext("2d")).Doughnut(doughnutData);
-				</script>
-				<p><b>Printing</b></p>
-				<p><small>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</small></p>
-			</div><!-- /col-lg-3 -->
-				
-				
+				<div class="col-lg-4">
+					<div class="tilt">
+					<a href="#"><img src="assets/img/p03.png" alt=""></a>
+					</div>
+				</div>
+
+				<div class="col-lg-4">
+					<div class="tilt">
+					<a href="#"><img src="assets/img/p02.png" alt=""></a>
+					</div>-->
+				</div>
 			</div><!-- row -->
 		</div><!-- container -->
 	</div><!-- DG -->
 
 
+	<!-- FEATURE SECTION / White --> 
+	<!--<div class="container wb">
+		<div class="row centered">
+			<br><br>
+			<div class="col-lg-8 col-lg-offset-2">
+				
+			<p><br/><br/></p>
+			</div>
+			<div class="col-lg-2"></div>
+			<div class="col-lg-10 col-lg-offset-1">
+			</div>
+		</div><!-- row -->
+	</div><!-- container -->
 
+
+	<!--<div id="lg">
+	
+		<div class="container">
+			<div class="row centered">
+				<h4>OUR AWESOME CLIENTS</h4>
+				<div class="col-lg-2 col-lg-offset-1">
+					<img src="assets/img/c01.gif" alt="">
+				</div>
+				<div class="col-lg-2">
+					<img src="assets/img/c02.gif" alt="">
+				</div>
+				<div class="col-lg-2">
+					<img src="assets/img/c03.gif" alt="">
+				</div>
+				<div class="col-lg-2">
+					<img src="assets/img/c04.gif" alt="">
+				</div>
+				<div class="col-lg-2">
+					<img src="assets/img/c05.gif" alt="">
+				</div>
+			</div><!-- row -->
+		</div><!-- container --> 
+	</div><!-- dg -->
+	
 	
 	<div id="r">
 		<div class="container">
 			<div class="row centered">
 				<div class="col-lg-8 col-lg-offset-2">
-					<h4>EAT. PRAY. DRINK SMOOTHIES</h4>
-					<p>We believe that smoothies are the future. Make them well and let them drink the way.</p>
+					<h4>EAT. PRAY. DRINK SMOOTHIES.</h4>
+					<p>Who doesn't love a bunch of fruits or veggies mixed in a liquid form?</p>
 				</div>
 			</div><!-- row -->
 		</div><!-- container -->

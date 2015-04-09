@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<? session_start(); ?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -8,7 +9,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/ico/favicon.png">
 
-    <title>SQ - ABOUT</title>
+    <title>SQ - PROFILE</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -43,10 +44,10 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="index.php">HOME</a></li>
-            <li class="active"><a href="about.html">ABOUT</a></li>
+            <li><a href="about.html">ABOUT</a></li>
             <li><a href="search.html">SEARCH</a></li>
             <li><a href="create.html">CREATE</a></li>
-            <li><a href="profile.php">PROFILE</a></li>
+            <li class="active"><a href="profile.php">PROFILE</a></li>
             <li><a href="logout.php">LOGOUT</a></li>
             <!--<li><a data-toggle="modal" data-target="#myModal" href="#myModal"><i class="fa fa-envelope-o"></i></a></li>-->
           </ul>
@@ -58,8 +59,8 @@
 		<div class="container">
 			<div class="row centered">
 				<div class="col-lg-8 col-lg-offset-2">
-				<h4>LEARN MORE ABOUT THE SMOOTHIE QUEENS</h4>
-				<p>WE ARE COOL PEOPLE</p>
+				<h4>PROFILE PAGE</h4>
+				<p><?php echo strtoupper($_SESSION["user"]) ?>, CHECK OUT YOUR SAVED SMOOTHIES</p>
 				</div>
 			</div><!-- row -->
 		</div><!-- container -->
@@ -69,34 +70,7 @@
 	<div class="container w">
 		<div class="row centered">
 			<br><br>
-			<div class="col-lg-3">
-				<img class="img-circle" src="assets/img/pic.jpg" width="110" height="110" alt="">
-				<h4>Christine Danzi</h4>
-				<p><strong>Favorite Smoothie</strong><br> Peanut Butter Protein. Cause Chocolate.</p>
-				<p><a href="#">@Choco_Holic</a></p>
-			</div><!-- col-lg-3 -->
-
-			<div class="col-lg-3">
-				<img class="img-circle" src="assets/img/pic2.jpg" width="110" height="110" alt="">
-				<h4>Ami Jagodara</h4>
-				<p><strong>Favorite Smoothie</strong><br> Are there any with mint?</p>
-				<p><a href="#">@Mint_2Be</a></p>
-			</div><!-- col-lg-3 -->
-
-			<div class="col-lg-3">
-				<img class="img-circle" src="assets/img/pic3.jpg" width="110" height="110" alt="">
-				<h4>Megan Joyner</h4>
-				<p><strong>Favorite Smoothie</strong><br> Everything with onion and chive. Oh wait, you said smoothie...</p>
-				<p><a href="#">@Yo_True</a></p>
-			</div><!-- col-lg-3 -->
-
-			<div class="col-lg-3">
-				<img class="img-circle" src="assets/img/pic4.jpg" width="110" height="110" alt="">
-				<h4>Alice Zhang</h4>
-				<p><strong>Favorite Smoothie</strong><br> Ever have an avocado smoothie? That's pretty good.</p>
-				<p><a href="#">@Dance_Life</a></p>
-			</div><!-- col-lg-3 -->
-
+			<h1> Under Construction </h1>
 		</div><!-- row -->
 		<br>
 		<br>

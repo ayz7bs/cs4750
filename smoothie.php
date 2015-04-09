@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/ico/favicon.png">
 
-    <title>SQ - CREATE</title>
+    <title>SQ - SMOOTHIE</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -43,7 +43,7 @@
             <li><a href="index.php">HOME</a></li>
             <li><a href="about.html">ABOUT</a></li>
             <li><a href="search.html">SEARCH</a></li>
-            <li class="active"><a href="create.html">CREATE</a></li>
+            <li><a href="create.html">CREATE</a></li>
             <li><a href="profile.php">PROFILE</a></li>
             <li><a href="logout.php">LOGOUT</a></li>
             <!--<li><a data-toggle="modal" data-target="#myModal" href="#myModal"><i class="fa fa-envelope-o"></i></a></li>-->
@@ -72,7 +72,7 @@
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Yummy-in-my-tummy" aria-describedby="basic-addon2">
 					</div>
-					<!-- Development<br/>
+					<!--<i class="fa fa-circle-o"></i> Development<br/>
 					<i class="fa fa-link"></i> <a href="#">BlackTie.co</a>-->
 				</p>
 			</div>
@@ -81,7 +81,7 @@
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Smoothie Land" aria-describedby="basic-addon2">
 					</div>
-					<!-- Development<br/>
+					<!--<i class="fa fa-circle-o"></i> Development<br/>
 					<i class="fa fa-link"></i> <a href="#">BlackTie.co</a>-->
 				</p>
 			</div>
@@ -94,51 +94,50 @@
 			<div class="col-lg-12">
 				<h4>INGREDIENTS</h4>
 				<p>Use the following as a guide.</p>
-				<!-- Replace value with ingredient id -->
 				<div class="row">
 					<div class="col-lg-3">
-					<h4><i class="fa fa-circle-o"></i>Fruits</h4>
-						<label><input type="checkbox" name="ingredient" value="strawberries"> Strawberries</label><br/>
-						<label><input type="checkbox" name="ingredient" value="bananas">  Bananas</label><br/>
-						<label><input type="checkbox" name="ingredient" value="blueberries"> Blueberries</label><br/>
-						<label> <input type="checkbox" name="ingredient" value="rasberries"> Rasberries</label><br/>
-						<label><input type="checkbox" name="ingredient" value="oranges"> Oranges</label><br/>	
-						<label><input type="checkbox" name="ingredient" value="mangos"> Mangos</label><br/>				
-						<label><input type="checkbox" name="ingredient" value="pineapples"> Pineapples</label><br/>	
-						<label><input type="checkbox" name="ingredient" value="peaches"> Peaches</label><br/>	
-						<label><input type="checkbox" name="ingredient" value="apples"> Apples</label><br/>
+					<h4>Fruits</h4>
+						<i class="fa fa-circle-o"></i> <label>Strawberries <input type="checkbox" name="ingredient" value="strawberries"></label><br/>
+						<i class="fa fa-circle-o"></i> <label>Bananas <input type="checkbox" name="ingredient" value="bananas"></label><br/>
+						<i class="fa fa-circle-o"></i> <label>Blueberries <input type="checkbox" name="ingredient" value="blueberries"></label><br/>
+						<i class="fa fa-circle-o"></i> <label>Rasberries <input type="checkbox" name="ingredient" value="rasberries"></label><br/>
+						<i class="fa fa-circle-o"></i> <label>Oranges <input type="checkbox" name="ingredient" value="oranges"></label><br/>	
+						<i class="fa fa-circle-o"></i> <label>Mangos <input type="checkbox" name="ingredient" value="mangos"></label><br/>				
+						<i class="fa fa-circle-o"></i> <label>Pineapples <input type="checkbox" name="ingredient" value="pineapples"></label><br/>	
+						<i class="fa fa-circle-o"></i> <label>Peaches <input type="checkbox" name="ingredient" value="peaches"></label><br/>	
+						<i class="fa fa-circle-o"></i> <label>Apples <input type="checkbox" name="ingredient" value="apples"></label><br/>
 						
 					</div>
 					<div class="col-lg-3">
-					<h4><i class="fa fa-circle-o"></i>Vegetables</h4>
-						 <label><input type="checkbox" name="ingredient" value="mixed greens"> Mixed Greens</label><br>	
-						 <label><input type="checkbox" name="ingredient" value="carrots"> Carrots</label><br/>		
-						 <label><input type="checkbox" name="ingredient" value="spinach"> Spinach</label><br/>		
-						 <label><input type="checkbox" name="ingredient" value="avocado"> Avocado</label><br/>		
-						 <label><input type="checkbox" name="ingredient" value="broccoli"> Broccoli</label><br/>			
-						 <label><input type="checkbox" name="ingredient" value="celery"> Celery</label><br/>	
-						 <label><input type="checkbox" name="ingredient" value="beets"> Beets</label><br/>
-						 <label><input type="checkbox" name="ingredient" value="kale"> Kale</label><br/>
+					<h4>Vegetables</h4>
+						<i class="fa fa-circle-o"></i> <label>Mixed Greens <input type="checkbox" name="ingredient" value="mixed greens"></label><br>	
+						<i class="fa fa-circle-o"></i> <label>Carrots <input type="checkbox" name="ingredient" value="carrots"></label><br/>		
+						<i class="fa fa-circle-o"></i> <label>Spinach <input type="checkbox" name="ingredient" value="spinach"></label><br/>		
+						<i class="fa fa-circle-o"></i> <label>Avocado <input type="checkbox" name="ingredient" value="avocado"></label><br/>		
+						<i class="fa fa-circle-o"></i> <label>Broccoli <input type="checkbox" name="ingredient" value="broccoli"></label><br/>			
+						<i class="fa fa-circle-o"></i> <label>Celery <input type="checkbox" name="ingredient" value="celery"></label><br/>	
+						<i class="fa fa-circle-o"></i> <label>Beets <input type="checkbox" name="ingredient" value="beets"></label><br/>
+						<i class="fa fa-circle-o"></i> <label>Kale <input type="checkbox" name="ingredient" value="kale"></label><br/>
 					</div>
 					
 					<div class="col-lg-3">
-					<h4><i class="fa fa-circle-o"></i>Liquids</h4>
-						 <label><input type="checkbox" name="ingredient" value="milk"> Milk</label><br/>	
-						 <label><input type="checkbox" name="ingredient" value="water"> Water</label><br/>
-						 <label><input type="checkbox" name="ingredient" value="coconut milk"> Coconut Milk</label><br/>	
-						 <label><input type="checkbox" name="ingredient" value="coconut water"> Coconut Water</label><br/>
-						 <label><input type="checkbox" name="ingredient" value="almond milk"> Almond Milk</label><br/>
-						 <label><input type="checkbox" name="ingredient" value="fruit juice"> Fruit Juice</label><br/>
+					<h4>Liquids</h4>
+						<i class="fa fa-circle-o"></i> <label>Milk <input type="checkbox" name="ingredient" value="milk"></label><br/>	
+						<i class="fa fa-circle-o"></i> <label>Water <input type="checkbox" name="ingredient" value="water"></label><br/>
+						<i class="fa fa-circle-o"></i> <label>Coconut Milk <input type="checkbox" name="ingredient" value="coconut milk"></label><br/>	
+						<i class="fa fa-circle-o"></i> <label>Coconut Water <input type="checkbox" name="ingredient" value="coconut water"></label><br/>
+						<i class="fa fa-circle-o"></i> <label>Almond Milk <input type="checkbox" name="ingredient" value="almond milk"></label><br/>
+						<i class="fa fa-circle-o"></i> <label>Fruit Juice <input type="checkbox" name="ingredient" value="fruit juice"></label><br/>
 					</div>
 					
 					<div class="col-lg-3">
-					<h4><i class="fa fa-circle-o"></i>Other</h4>
-						 <label><input type="checkbox" name="ingredient" value="ice cubes"> Ice Cubes</label><br/>
-						 <label><input type="checkbox" name="ingredient" value="chia seeds"> Chia Seeds</label><br/>
-						 <label><input type="checkbox" name="ingredient" value="peanut butter"> Peanut Butter</label><br/>
-						 <label><input type="checkbox" name="ingredient" value="yogurt"> Yogurt</label><br/>
-						 <label><input type="checkbox" name="ingredient" value="sugar"> Sugar</label><br/>
-						 <label><input type="checkbox" name="ingredient" value="honey"> Honey</label><br/>
+					<h4>Other</h4>
+						<i class="fa fa-circle-o"></i> <label>Ice Cubes <input type="checkbox" name="ingredient" value="ice cubes"></label><br/>
+						<i class="fa fa-circle-o"></i> <label>Chia Seeds <input type="checkbox" name="ingredient" value="chia seeds"></label><br/>
+						<i class="fa fa-circle-o"></i> <label>Peanut Butter <input type="checkbox" name="ingredient" value="peanut butter"></label><br/>
+						<i class="fa fa-circle-o"></i> <label>Yogurt <input type="checkbox" name="ingredient" value="yogurt"></label><br/>
+						<i class="fa fa-circle-o"></i> <label>Sugar <input type="checkbox" name="ingredient" value="sugar"></label><br/>
+						<i class="fa fa-circle-o"></i> <label>Honey <input type="checkbox" name="ingredient" value="honey"></label><br/>
 					</div>
 				</div>
 			</div>
@@ -154,17 +153,17 @@
 				<p>
 				<class="row">
 					<div class="col-lg-4">
-					 <i class="fa fa-circle-o"></i> Total Calories <div class="input-group">
+					<i class="fa fa-circle-o"></i> Total Calories <div class="input-group">
 						<input type="text" class="form-control" placeholder="200" aria-describedby="basic-addon2">
 						<span class="input-group-addon" id="basic-addon2">cal</span>
 					</div></div>
 					<div class="col-lg-4">
-					 <i class="fa fa-circle-o"></i> Total Fat <div class="input-group">
+					<i class="fa fa-circle-o"></i> Total Fat <div class="input-group">
 						<input type="text" class="form-control" placeholder="50" aria-describedby="basic-addon2">
 						<span class="input-group-addon" id="basic-addon2">g</span>
 					</div></div>
 					<div class="col-lg-4">
-					 <i class="fa fa-circle-o"></i> Vitamin C <div class="input-group">
+					<i class="fa fa-circle-o"></i> Vitamin C <div class="input-group">
 						<input type="text" class="form-control" placeholder="100" aria-describedby="basic-addon2">
 						<span class="input-group-addon" id="basic-addon2">%</span>
 					</div></div>
