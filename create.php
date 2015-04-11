@@ -5,7 +5,7 @@
 # Get Different parts of smoothie
 
   
-  $db_connection = new mysqli('stardock.cs.virginia.edu', 'cs4720ayz7bs', 'cad4vm', 'cs4720ayz7bs');
+  $db_connection = new mysqli('stardock.cs.virginia.edu', 'cs4750ayz7bs', 'cs4750', 'cs4750ayz7bs');
   if (mysqli_connect_errno()) {
       echo "Error";
   }
