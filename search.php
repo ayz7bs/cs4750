@@ -1,11 +1,11 @@
 <?php
-$mysqli = new mysqli('stardock.cs.virginia.edu', 'cs4750cad4vm', 'luckyapple64', 'cs4750cad4vm');
+$mysqli = new mysqli('stardock.cs.virginia.edu', 'cs4750ayz7bs', 'cs4750', 'cs4750ayz7bs');
 if ($mysqli->connect_errno) {
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 }
 $name = $_GET['name'];
 
-if (!($stmt = $mysqli->prepare("SELECT smoothie_id, name, rating FROM smoothie where name LIKE CONCAT('%', ?, '%')"))) {
+if (!($stmt = $mysqli->prepare("SELECT smoothie_id, name FROM Smoothie where name LIKE CONCAT('%', ?, '%')"))) {
     echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
 }
 
@@ -16,7 +16,7 @@ if (!$stmt->execute()) {
     echo "Execute failed: (" . $mysqli->errno . ") " . $mysqli->error;
 }
 
-if (!$stmt->bind_result($id, $name, $rating)) {
+if (!$stmt->bind_result($id, $name)) {
     echo "Binding output parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 }
 echo "<h4> Smoothie Results </h4>";
