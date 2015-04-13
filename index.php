@@ -54,7 +54,7 @@ header("location:login.php");
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="index.html">HOME</a></li>
             <li><a href="about.html">ABOUT</a></li>
-            <li><a href="search.html">SEARCH</a></li>
+            <li><a href="search_index.php">SEARCH</a></li>
             <li><a href="create.html">CREATE</a></li>
             <li><a href="profile.php">PROFILE</a></li>
             <li><a href="logout.php">LOGOUT</a></li>

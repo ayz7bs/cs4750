@@ -5,7 +5,7 @@ if ($mysqli->connect_errno) {
 }
 $name = $_GET['name'];
 
-if (!($stmt = $mysqli->prepare("SELECT smoothie_id, name, rating FROM smoothie where name LIKE CONCAT('%', ?, '%')"))) {
+if (!($stmt = $mysqli->prepare("SELECT smoothie_id, name, rating FROM smoothie"))) {
     echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
 }
 
@@ -19,7 +19,7 @@ if (!$stmt->execute()) {
 if (!$stmt->bind_result($id, $name, $rating)) {
     echo "Binding output parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 }
-echo "<h4> Smoothie Results </h4>";
+echo "<h4> Available Smoothies</h4>";
 echo "<br><br>";
 echo "<div class='container'>";
 	echo "<div class='row centered'>";

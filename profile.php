@@ -45,7 +45,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="index.php">HOME</a></li>
             <li><a href="about.html">ABOUT</a></li>
-            <li><a href="search.html">SEARCH</a></li>
+            <li><a href="search_index.php">SEARCH</a></li>
             <li><a href="create.html">CREATE</a></li>
             <li class="active"><a href="profile.php">PROFILE</a></li>
             <li><a href="logout.php">LOGOUT</a></li>
