@@ -14,7 +14,7 @@ if($password != $cpassword){
 	
 }else{
 
-	if (!($stmt = $mysqli->prepare("INSERT INTO User VALUES(NULL, ?, ?, 0)"))) {
+	if (!($stmt = $mysqli->prepare("INSERT INTO User VALUES(?, ?, 0)"))) {
     	echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
 		}
 
