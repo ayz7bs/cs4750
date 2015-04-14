@@ -48,6 +48,22 @@
 					});
 
 				});
+				$("#restriction").change(function(){
+					$.ajax({
+						url: 'restriction.php',
+						type: 'GET',
+						data: {type: $("#restriction").val()},
+						success: function(data){
+							// clear current div
+							$('#dg').empty();
+							
+							// show new data
+							$('#dg').html(data);
+						}
+
+					});
+
+				});
 			});
  
 		</script>
@@ -94,22 +110,56 @@
 
 <br><br><br>
 <div class="container">
-<div class="row centered">
-  <div class="col-lg-2"></div>
-  <div class="col-lg-8">
-    <div class="input-group">
-      <input type="text" name="smoothie" id="smoothieSearch" class="form-control" placeholder="I'm craving...">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Find Smoothie!</button>
-      </span>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-8 -->
-  <div class="col-lg-2"></div>
-  
-</div><!-- /.row -->
+	<div class="row centered">
+	  <div class="col-lg-2"></div>
+	  <div class="col-lg-8">
+	    <div class="input-group">
+	      <input type="text" name="smoothie" id="smoothieSearch" class="form-control" placeholder="I'm craving...">
+	      <span class="input-group-btn">
+	        <button class="btn btn-default" type="button">Find Smoothie!</button>
+	      </span>
+	    </div><!-- /input-group -->
+	  </div><!-- /.col-lg-8 -->
+	  <div class="col-lg-2"></div>
+	  
+	</div><!-- /.row --> 
+	<br/>
+	<div class="row centered">
+		<h4><b>DIETARY RESTRICTION?</b></h4>
+	</div>
+	<div class="row">
+		 <div class="col-lg-5"></div>
+		 <div class="col-lg-2">
+
+		
+			<?php
+
+				$link = mysqli_connect("stardock.cs.virginia.edu","cs4750ayz7bs","cs4750","cs4750ayz7bs");
+
+				$sql = "SELECT type FROM Dietary_Restriction;";
+
+				$result = mysqli_query($link,$sql);
+				if ($result != 0) {
+				    echo '<select name="type" id="restriction">';
+    				echo '<option value=></option>';
+
+				    $num_results = mysqli_num_rows($result);
+				    for ($i=0;$i<$num_results;$i++) {
+				        $row = mysqli_fetch_array($result);
+				        $type = $row['type'];
+				        echo '<option value="' .$type. '">' .$type. '</option>';
+				    }
+
+				    echo '</select>';
+				    echo '</label>';
+				}
+
+				mysqli_close($link);
+
+			?>
+		</div>
+	</div>
 </div>
-
-
 			
 			
 	<div class="container">
