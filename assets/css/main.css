@@ -418,3 +418,37 @@ a:after {
 	background-color: white;
 }
 
+.input-group-btn:last-child > .form-control {
+  margin-left: -1px;
+  width: auto;
+}
+
+.no-border {
+	padding: 10px;
+}
+
+.no-padding {
+	padding: 0px;
+}
+.no-margin{
+	margin: 0px;
+}
+
+.no-background {
+	background-color: none;
+	border: 0px;
+	border-top: 0px;
+}
+
+.panel-default > .panel-heading {
+	background-color: #f2f2f2;
+	border-color: #f2f2f2;
+}
+
+.panel-body {
+	background-color: #f2f2f2;
+}
+
+.panel-group .panel-heading + .panel-collapse .panel-body {
+	border-top: 0px;
+}
