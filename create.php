@@ -4,11 +4,11 @@
 
 $fruits = array("Strawberries" => 1, "Bananas" => 2, "Blueberries" => 3, "Rasberries" => 4, "Oranges" => 5, "Mangos" => 6, "Pineapples" => 7, "Peaches" => 8, "Apples" => 9);
 
-$veggies = array("Mixed Greens" => 10, "Carrots" => 11, "Spinach" => 12, "Avocado" => 13, "Broccoli" => 14, "Celery" => 15, "Beets" => 16, "Kale" => 17);
+$veggies = array("Mixed Greens" => 10, "Carrots" => 11, "Spinach" => 12, "Avocados" => 13, "Broccoli" => 14, "Celery" => 15, "Beets" => 16, "Kale" => 17);
 
 $liquids = array("Milk" => 18, "Water" => 19, "Coconut Milk" => 20, "Coconut Water" => 21, "Almond Milk" => 22, "Fruit Juice" => 23);
 
-$others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yogurt" => 27, "Sugar" => 29, "Honey" => 20);
+$others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yogurt" => 27, "Sugar" => 29, "Honey" => 30);
 
 
 ?>
@@ -62,7 +62,7 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
             <li><a href="index.php">HOME</a></li>
             <li><a href="about.html">ABOUT</a></li>
             <li><a href="search_index.php">SEARCH</a></li>
-            <li class="active"><a href="create.html">CREATE</a></li>
+            <li class="active"><a href="create.php">CREATE</a></li>
             <li><a href="profile.php">PROFILE</a></li>
             <li><a href="logout.php">LOGOUT</a></li>
             <!--<li><a data-toggle="modal" data-target="#myModal" href="#myModal"><i class="fa fa-envelope-o"></i></a></li>-->
@@ -87,18 +87,22 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 		<div class="row">
 			<br><br>
 			<div class="col-lg-6">
+			<form action="create_smoothie.php" method="GET">
 				<h4>SMOOTHIE NAME</h4>
 					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Yummy-in-my-tummy" aria-describedby="basic-addon2">
+						<input name="smoothie_name" type="text" class="form-control" placeholder="Yummy-in-my-tummy" aria-describedby="basic-addon2">
+						
 					</div>
 					<!-- Development<br/>
 					<i class="fa fa-link"></i> <a href="#">BlackTie.co</a>-->
 				</p>
+			
 			</div>
 			<div class="col-lg-6">
+			<form action="create_smoothie.php" method="GET">
 				<h4>LOCATION</h4>
 					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Smoothie Land" aria-describedby="basic-addon2">
+						<input name="place_name" type="text" class="form-control" placeholder="Smoothie Land" aria-describedby="basic-addon2">
 					</div>
 					<!-- Development<br/>
 					<i class="fa fa-link"></i> <a href="#">BlackTie.co</a>-->
@@ -127,7 +131,7 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 								<h4 class="panel-title">
                                       <div class="checkbox no-margin">
 										  <label data-toggle="collapse" data-target="#collapse<?=(string)$id?>">
-										  <input type="checkbox"/> <?=$fruit?>	
+										  <input type="checkbox" name="ingredient[]" value=<?=$id?> /> <?=$fruit?>	
 										  </label>
 									</div>
 								  </h4>
@@ -135,9 +139,10 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 								  <div id="collapse<?=(string)$id?>" class="panel-collapse collapse">
 									  <div class="panel-body no-padding no-background ">
 										  <div id="amount" class="input-group col-lg-8">
-											  <input class="form-control" name="q" type="text">
+										  <form action="create_smoothie.php" method="GET">
+											  <input class="form-control" name="quantity[]" type="text">
 											  <div class="input-group-btn">
-												  <select class="form-control" name="category">
+												  <select class="form-control" name="measurement[]">
 													  <option>cup(s)</option>
 													  <option>ounce(s)</option>
 												</select>
@@ -161,7 +166,7 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 								<h4 class="panel-title">
                                       <div class="checkbox no-margin">
 										  <label data-toggle="collapse" data-target="#collapse<?=(string)$id?>">
-										  <input type="checkbox"/> <?=$veggie?>	
+										  <input type="checkbox" name="ingredient[]" value=<?=$id?> /> <?=$veggie?>	
 										  </label>
 									</div>
 								  </h4>
@@ -169,9 +174,10 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 								  <div id="collapse<?=(string)$id?>" class="panel-collapse collapse">
 									  <div class="panel-body no-padding no-background ">
 										  <div id="amount" class="input-group col-lg-8">
-											  <input class="form-control" name="q" type="text">
+										  <form action="create_smoothie.php" method="GET">
+											  <input class="form-control" name="quantity[]" type="text">
 											  <div class="input-group-btn">
-												  <select class="form-control" name="category">
+												  <select class="form-control" name="measurement[]">
 													  <option>cup(s)</option>
 													  <option>ounce(s)</option>
 												</select>
@@ -195,7 +201,7 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 								<h4 class="panel-title">
                                       <div class="checkbox no-margin">
 										  <label data-toggle="collapse" data-target="#collapse<?=(string)$id?>">
-										  <input type="checkbox"/> <?=$liquid?>	
+										  <input type="checkbox" name="ingredient[]" value=<?=$id?> > <?=$liquid?>	
 										  </label>
 									</div>
 								  </h4>
@@ -203,9 +209,9 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 								  <div id="collapse<?=(string)$id?>" class="panel-collapse collapse">
 									  <div class="panel-body no-padding no-background ">
 										  <div id="amount" class="input-group col-lg-8">
-											  <input class="form-control" name="q" type="text">
+											  <input class="form-control" name="quantity[]" type="text">
 											  <div class="input-group-btn">
-												  <select class="form-control" name="category">
+												  <select class="form-control" name="measurement[]">
 													  <option>cup(s)</option>
 													  <option>ounce(s)</option>
 												</select>
@@ -229,7 +235,7 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 								<h4 class="panel-title">
                                       <div class="checkbox no-margin">
 										  <label data-toggle="collapse" data-target="#collapse<?=(string)$id?>">
-										  <input type="checkbox"/> <?=$other?>	
+										  <input type="checkbox" name="ingredient[]" value=<?=$id?> /> <?=$other?>	
 										  </label>
 									</div>
 								  </h4>
@@ -237,9 +243,9 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 								  <div id="collapse<?=(string)$id?>" class="panel-collapse collapse">
 									  <div class="panel-body no-padding no-background ">
 										  <div id="amount" class="input-group col-lg-8">
-											  <input class="form-control" name="q" type="text">
+											  <input class="form-control" name="quantity[]" type="text">
 											  <div class="input-group-btn">
-												  <select class="form-control" name="category">
+												  <select class="form-control" name="measurement[]">
 													  <option>cup(s)</option>
 													  <option>ounce(s)</option>
 												</select>
@@ -261,28 +267,29 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 				<p>
 				<class="row">
 					<div class="col-sm-2">
+					<form action="create_smoothie.php" method="GET">
 					 <i class="fa fa-circle-o"></i> Total Calories <div class="input-group">
-						<input type="text" class="form-control" placeholder="200" aria-describedby="basic-addon2">
+						<input name="calories" type="number" class="form-control" placeholder="200" aria-describedby="basic-addon2" value="0">
 						<span class="input-group-addon" id="basic-addon2">cal</span>
 					</div></div>
 					<div class="col-sm-2">
 					 <i class="fa fa-circle-o"></i> Sugar <div class="input-group">
-						<input type="text" class="form-control" placeholder="50" aria-describedby="basic-addon2">
+						<input name="sugar" type="number" class="form-control" placeholder="50" aria-describedby="basic-addon2" value="0">
 						<span class="input-group-addon" id="basic-addon2">g</span>
 					</div></div>
 					<div class="col-sm-2">
 					 <i class="fa fa-circle-o"></i> Fiber <div class="input-group">
-						<input type="text" class="form-control" placeholder="100" aria-describedby="basic-addon2">
+						<input name="fiber" type="number" class="form-control" placeholder="100" aria-describedby="basic-addon2" value="0">
 						<span class="input-group-addon" id="basic-addon2">g</span>
 					</div></div>
 					<div class="col-sm-2">
 					 <i class="fa fa-circle-o"></i> Protein <div class="input-group">
-						<input type="text" class="form-control" placeholder="200" aria-describedby="basic-addon2">
+						<input name="protein" type="number" class="form-control" placeholder="200" aria-describedby="basic-addon2" value="0">
 						<span class="input-group-addon" id="basic-addon2">g</span>
 					</div></div>
 					<div class="col-sm-2">
 					 <i class="fa fa-circle-o"></i> Calcium <div class="input-group">
-						<input type="text" class="form-control" placeholder="100" aria-describedby="basic-addon2">
+						<input name="calcium" type="number" class="form-control" placeholder="100" aria-describedby="basic-addon2" value="0">
 						<span class="input-group-addon" id="basic-addon2">%</span>
 					</div></div>
 			</div>
@@ -293,14 +300,18 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 		<div class="pricing-option">
 		<class="row">
 			<div class="col-lg-4"></div>
-			<div class="col-lg-4"><a href="create.html#" class="pricing-signup">CREATE SMOOTHIE</a></div>
+			<div class="col-lg-4">
+			<button type="submit" formaction="create_smoothie.php" class="pricing-signup">CREATE SMOOTHIE</button>
+			</div>
+			</form>
 			<div class="col-lg-4"></div>
 		</class="row">
         </div><!-- /pricing-option -->
         <br/><br/>
 	</div><!-- container -->
+</div>
+</div>
 
-	
 	<div id="r">
 		<div class="container">
 			<div class="row centered">
@@ -360,5 +371,4 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
-  </body>
-</html>
+  </body></html>
