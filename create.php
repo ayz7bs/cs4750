@@ -260,23 +260,31 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 				<p>Fill in the following information.</p>
 				<p>
 				<class="row">
-					<div class="col-lg-4">
+					<div class="col-sm-2">
 					 <i class="fa fa-circle-o"></i> Total Calories <div class="input-group">
 						<input type="text" class="form-control" placeholder="200" aria-describedby="basic-addon2">
 						<span class="input-group-addon" id="basic-addon2">cal</span>
 					</div></div>
-					<div class="col-lg-4">
-					 <i class="fa fa-circle-o"></i> Total Fat <div class="input-group">
+					<div class="col-sm-2">
+					 <i class="fa fa-circle-o"></i> Sugar <div class="input-group">
 						<input type="text" class="form-control" placeholder="50" aria-describedby="basic-addon2">
 						<span class="input-group-addon" id="basic-addon2">g</span>
 					</div></div>
-					<div class="col-lg-4">
-					 <i class="fa fa-circle-o"></i> Vitamin C <div class="input-group">
+					<div class="col-sm-2">
+					 <i class="fa fa-circle-o"></i> Fiber <div class="input-group">
+						<input type="text" class="form-control" placeholder="100" aria-describedby="basic-addon2">
+						<span class="input-group-addon" id="basic-addon2">g</span>
+					</div></div>
+					<div class="col-sm-2">
+					 <i class="fa fa-circle-o"></i> Protein <div class="input-group">
+						<input type="text" class="form-control" placeholder="200" aria-describedby="basic-addon2">
+						<span class="input-group-addon" id="basic-addon2">g</span>
+					</div></div>
+					<div class="col-sm-2">
+					 <i class="fa fa-circle-o"></i> Calcium <div class="input-group">
 						<input type="text" class="form-control" placeholder="100" aria-describedby="basic-addon2">
 						<span class="input-group-addon" id="basic-addon2">%</span>
 					</div></div>
-				</class="row">
-				</p>
 			</div>
 		</div><!-- row -->
 		<br><br>
