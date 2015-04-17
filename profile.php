@@ -46,7 +46,7 @@
             <li><a href="index.php">HOME</a></li>
             <li><a href="about.html">ABOUT</a></li>
             <li><a href="search_index.php">SEARCH</a></li>
-            <li><a href="create.html">CREATE</a></li>
+            <li><a href="create.php">CREATE</a></li>
             <li class="active"><a href="profile.php">PROFILE</a></li>
             <li><a href="logout.php">LOGOUT</a></li>
             <!--<li><a data-toggle="modal" data-target="#myModal" href="#myModal"><i class="fa fa-envelope-o"></i></a></li>-->
