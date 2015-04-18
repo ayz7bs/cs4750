@@ -44,9 +44,7 @@
 							// show new data
 							$('#dg').html(data);
 						}
-
 					});
-
 				});
 				$("#restriction").change(function(){
 					$.ajax({
@@ -60,9 +58,7 @@
 							// show new data
 							$('#dg').html(data);
 						}
-
 					});
-
 				});
 			});
  
@@ -133,29 +129,22 @@
 
 		
 			<?php
-
 				$link = mysqli_connect("stardock.cs.virginia.edu","cs4750ayz7bs","cs4750","cs4750ayz7bs");
-
 				$sql = "SELECT type FROM Dietary_Restriction;";
-
 				$result = mysqli_query($link,$sql);
 				if ($result != 0) {
 				    echo '<select name="type" id="restriction">';
     				echo '<option value=></option>';
-
 				    $num_results = mysqli_num_rows($result);
 				    for ($i=0;$i<$num_results;$i++) {
 				        $row = mysqli_fetch_array($result);
 				        $type = $row['type'];
 				        echo '<option value="' .$type. '">' .$type. '</option>';
 				    }
-
 				    echo '</select>';
 				    echo '</label>';
 				}
-
 				mysqli_close($link);
-
 			?>
 		</div>
 	</div>
@@ -274,18 +263,13 @@
 			    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 			}
 			$name = $_GET['name'];
-
 			if (!($stmt = $mysqli->prepare("SELECT smoothie_id, smoothie_name FROM Smoothie"))) {
 			    echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
 			}
-
 			$stmt->bind_param("s", $name);
-
-
 			if (!$stmt->execute()) {
 			    echo "Execute failed: (" . $mysqli->errno . ") " . $mysqli->error;
 			}
-
 			if (!$stmt->bind_result($id, $smoothie_name)) {
 			    echo "Binding output parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 			}
@@ -293,8 +277,6 @@
 			echo "<br><br>";
 			echo "<div class='container'>";
 				echo "<div class='row centered'>";
-
-
 			      while($stmt->fetch()) {
 			      	  echo "<div class='col-lg-4'>";
 			          	# START SMOOTHIE TABLE
@@ -313,7 +295,6 @@
 			       }
 			echo "</div>";
 				echo "</div>";
-
 			?>
 	</div><!-- DG -->
 

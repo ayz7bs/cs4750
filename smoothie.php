@@ -73,17 +73,18 @@ if (!$stmt->bind_result($Name, $Amount)) {
 	  
 
       # }
+      	$names = array();
+      	$amounts = array();
+      	
 		while($stmt->fetch()) {
-      	// should only be one result cause id is unique
-      	$name=$Name;
-      	$amount=$Amount;
-	   
-	
+      	// store the values
+      	array_push($names, $Name);
+      	array_push($amounts, $Amount);
 
        }
 
 //Getting Nutrition info
-if (!($stmt = $mysqli->prepare("SELECT calories, sugar, fiber, protein, calcium FROM Smoothie natural join smoothie_nutrition natural join Nutrition_Info where smoothie_id = 42
+if (!($stmt = $mysqli->prepare("SELECT calories, sugar, fiber, protein, calcium FROM Smoothie natural join smoothie_nutrition natural join Nutrition_Info where smoothie_id = ?
 "))) {
     echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
 }
@@ -171,8 +172,8 @@ if (!$stmt->bind_result($Calories, $Sugar, $Fiber, $Protein, $Calcium)) {
 		<div class="container">
 			<div class="row centered">
 				<div class="col-lg-8 col-lg-offset-2">
-				<h4>WE HAVE PLENTY OF SMOOTHIES TO TRY</h4>
-				<p>FEEL FREE TO ADD YOUR OWN</p>
+				<h4>LEARN MORE ABOUT THIS SMOOTHIE</h4>
+				<p>Love it? Add it to your favorites.</p>
 				</div>
 			</div><!-- row -->
 		</div><!-- container -->
@@ -186,6 +187,7 @@ if (!$stmt->bind_result($Calories, $Sugar, $Fiber, $Protein, $Calcium)) {
 	
 	<left><h3>Location: <?=$place_name?></h3></left>
    <!--<left><h3>ing:<?=$name?></h3></left>-->
+   <br>
 
 	<left><h3>Ingredients</h3>
 	<table class="table table-striped">
@@ -194,13 +196,18 @@ if (!$stmt->bind_result($Calories, $Sugar, $Fiber, $Protein, $Calcium)) {
 			    <th>Amount</th> 
 			     
  			 </tr>
+ 			 
+ 			 <? foreach($names as $index => $name){ ?>
   			<tr>
 			    <td> <?=$name?> </td>
-			    <td> <?=$amount?> </td>
+			    <td> <?=$amounts[$index]?> </td>
 			    	  
-			
   			</tr>
+  			
+  			<? } ?>
+  			
 		</table>
+		<br>
 
     <left><h3> Nutrition Information </h3>
 	<table class="table table-striped">
@@ -208,7 +215,7 @@ if (!$stmt->bind_result($Calories, $Sugar, $Fiber, $Protein, $Calcium)) {
 			    <th>Calories</th>
 			    <th>Sugar</th> 
 			    <th>Fiber</th>
-			    <th>Proetein</th>
+			    <th>Protein</th>
 			    <th>Calcium</th>
  			 </tr>
   			<tr>
@@ -222,7 +229,8 @@ if (!$stmt->bind_result($Calories, $Sugar, $Fiber, $Protein, $Calcium)) {
 		</table>
 	</left>
 	</div><!-- container -->
-
+	<br><br>
+	
 	
 	<div id="r">
 		<div class="container">
