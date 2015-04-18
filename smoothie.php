@@ -1,3 +1,57 @@
+<?php
+$mysqli = new mysqli('stardock.cs.virginia.edu', 'cs4750ayz7bs', 'cs4750', 'cs4750ayz7bs');
+if ($mysqli->connect_errno) {
+    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+}
+
+$smoothie_id = $_GET['smoothie_id'];
+
+
+// Getting Smoothie Name
+if (!($stmt = $mysqli->prepare("SELECT smoothie_name FROM Smoothie where smoothie_id = ?"))) {
+    echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+}
+
+$stmt->bind_param("i", $smoothie_id);
+
+if (!$stmt->execute()) {
+    echo "Execute failed: (" . $mysqli->errno . ") " . $mysqli->error;
+}
+
+if (!$stmt->bind_result($name)) {
+    echo "Binding output parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+}
+
+
+      while($stmt->fetch()) {
+      	// should only be one result cause id is unique
+		$smoothie_name = $name;		
+       }
+       
+// Getting Place for Smoothie
+if (!($stmt = $mysqli->prepare("SELECT place_name FROM Smoothie natural join sold_at natural join Place where smoothie_id = ?"))) {
+    echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+}
+
+$stmt->bind_param("i", $smoothie_id);
+
+if (!$stmt->execute()) {
+    echo "Execute failed: (" . $mysqli->errno . ") " . $mysqli->error;
+}
+
+if (!$stmt->bind_result($location)) {
+    echo "Binding output parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+}
+
+      while($stmt->fetch()) {
+      	// should only be one result cause id is unique
+		$place_name = $location;		
+       }
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -65,123 +119,15 @@
 
 
 	<div class="container desc">
-		<div class="row">
-			<br><br>
-			<div class="col-lg-6">
-				<h4>SMOOTHIE NAME</h4>
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Yummy-in-my-tummy" aria-describedby="basic-addon2">
-					</div>
-					<!--<i class="fa fa-circle-o"></i> Development<br/>
-					<i class="fa fa-link"></i> <a href="#">BlackTie.co</a>-->
-				</p>
-			</div>
-			<div class="col-lg-6">
-				<h4>LOCATION</h4>
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Smoothie Land" aria-describedby="basic-addon2">
-					</div>
-					<!--<i class="fa fa-circle-o"></i> Development<br/>
-					<i class="fa fa-link"></i> <a href="#">BlackTie.co</a>-->
-				</p>
-			</div>
-		</div><!-- row -->
-		
-		<br><br>
-		<hr>
-		<br><br>
-		<div class="row">
-			<div class="col-lg-12">
-				<h4>INGREDIENTS</h4>
-				<p>Use the following as a guide.</p>
-				<div class="row">
-					<div class="col-lg-3">
-					<h4>Fruits</h4>
-						<i class="fa fa-circle-o"></i> <label>Strawberries <input type="checkbox" name="ingredient" value="strawberries"></label><br/>
-						<i class="fa fa-circle-o"></i> <label>Bananas <input type="checkbox" name="ingredient" value="bananas"></label><br/>
-						<i class="fa fa-circle-o"></i> <label>Blueberries <input type="checkbox" name="ingredient" value="blueberries"></label><br/>
-						<i class="fa fa-circle-o"></i> <label>Rasberries <input type="checkbox" name="ingredient" value="rasberries"></label><br/>
-						<i class="fa fa-circle-o"></i> <label>Oranges <input type="checkbox" name="ingredient" value="oranges"></label><br/>	
-						<i class="fa fa-circle-o"></i> <label>Mangos <input type="checkbox" name="ingredient" value="mangos"></label><br/>				
-						<i class="fa fa-circle-o"></i> <label>Pineapples <input type="checkbox" name="ingredient" value="pineapples"></label><br/>	
-						<i class="fa fa-circle-o"></i> <label>Peaches <input type="checkbox" name="ingredient" value="peaches"></label><br/>	
-						<i class="fa fa-circle-o"></i> <label>Apples <input type="checkbox" name="ingredient" value="apples"></label><br/>
-						
-					</div>
-					<div class="col-lg-3">
-					<h4>Vegetables</h4>
-						<i class="fa fa-circle-o"></i> <label>Mixed Greens <input type="checkbox" name="ingredient" value="mixed greens"></label><br>	
-						<i class="fa fa-circle-o"></i> <label>Carrots <input type="checkbox" name="ingredient" value="carrots"></label><br/>		
-						<i class="fa fa-circle-o"></i> <label>Spinach <input type="checkbox" name="ingredient" value="spinach"></label><br/>		
-						<i class="fa fa-circle-o"></i> <label>Avocado <input type="checkbox" name="ingredient" value="avocado"></label><br/>		
-						<i class="fa fa-circle-o"></i> <label>Broccoli <input type="checkbox" name="ingredient" value="broccoli"></label><br/>			
-						<i class="fa fa-circle-o"></i> <label>Celery <input type="checkbox" name="ingredient" value="celery"></label><br/>	
-						<i class="fa fa-circle-o"></i> <label>Beets <input type="checkbox" name="ingredient" value="beets"></label><br/>
-						<i class="fa fa-circle-o"></i> <label>Kale <input type="checkbox" name="ingredient" value="kale"></label><br/>
-					</div>
-					
-					<div class="col-lg-3">
-					<h4>Liquids</h4>
-						<i class="fa fa-circle-o"></i> <label>Milk <input type="checkbox" name="ingredient" value="milk"></label><br/>	
-						<i class="fa fa-circle-o"></i> <label>Water <input type="checkbox" name="ingredient" value="water"></label><br/>
-						<i class="fa fa-circle-o"></i> <label>Coconut Milk <input type="checkbox" name="ingredient" value="coconut milk"></label><br/>	
-						<i class="fa fa-circle-o"></i> <label>Coconut Water <input type="checkbox" name="ingredient" value="coconut water"></label><br/>
-						<i class="fa fa-circle-o"></i> <label>Almond Milk <input type="checkbox" name="ingredient" value="almond milk"></label><br/>
-						<i class="fa fa-circle-o"></i> <label>Fruit Juice <input type="checkbox" name="ingredient" value="fruit juice"></label><br/>
-					</div>
-					
-					<div class="col-lg-3">
-					<h4>Other</h4>
-						<i class="fa fa-circle-o"></i> <label>Ice Cubes <input type="checkbox" name="ingredient" value="ice cubes"></label><br/>
-						<i class="fa fa-circle-o"></i> <label>Chia Seeds <input type="checkbox" name="ingredient" value="chia seeds"></label><br/>
-						<i class="fa fa-circle-o"></i> <label>Peanut Butter <input type="checkbox" name="ingredient" value="peanut butter"></label><br/>
-						<i class="fa fa-circle-o"></i> <label>Yogurt <input type="checkbox" name="ingredient" value="yogurt"></label><br/>
-						<i class="fa fa-circle-o"></i> <label>Sugar <input type="checkbox" name="ingredient" value="sugar"></label><br/>
-						<i class="fa fa-circle-o"></i> <label>Honey <input type="checkbox" name="ingredient" value="honey"></label><br/>
-					</div>
-				</div>
-			</div>
-		</div><!-- row -->
-
-		<br><br>
-		<hr>
-		<br><br>
-		<div class="row">
-			<div class="col-lg-12">
-				<h4>NUTRITIONAL INFO</h4>
-				<p>Fill in the following information.</p>
-				<p>
-				<class="row">
-					<div class="col-lg-4">
-					<i class="fa fa-circle-o"></i> Total Calories <div class="input-group">
-						<input type="text" class="form-control" placeholder="200" aria-describedby="basic-addon2">
-						<span class="input-group-addon" id="basic-addon2">cal</span>
-					</div></div>
-					<div class="col-lg-4">
-					<i class="fa fa-circle-o"></i> Total Fat <div class="input-group">
-						<input type="text" class="form-control" placeholder="50" aria-describedby="basic-addon2">
-						<span class="input-group-addon" id="basic-addon2">g</span>
-					</div></div>
-					<div class="col-lg-4">
-					<i class="fa fa-circle-o"></i> Vitamin C <div class="input-group">
-						<input type="text" class="form-control" placeholder="100" aria-describedby="basic-addon2">
-						<span class="input-group-addon" id="basic-addon2">%</span>
-					</div></div>
-				</class="row">
-				</p>
-			</div>
-		</div><!-- row -->
-		<br><br>
-		
-		<br/>
-		<div class="pricing-option">
-		<class="row">
-			<div class="col-lg-4"></div>
-			<div class="col-lg-4"><a href="create.html#" class="pricing-signup">CREATE SMOOTHIE</a></div>
-			<div class="col-lg-4"></div>
-		</class="row">
-        </div><!-- /pricing-option -->
-        <br/><br/>
+	
+	<center><h1><?=$smoothie_name?></h1></center>
+	
+	
+	<center><h1><?=$place_name?></h1></center>
+	
+	
+	
+	
 	</div><!-- container -->
 
 	
