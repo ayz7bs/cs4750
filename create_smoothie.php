@@ -1,5 +1,4 @@
 <?php
-
  // General Info
  $smoothie_name = $_GET['smoothie_name'];
  $place_name = $_GET['place_name'];
@@ -13,21 +12,18 @@
  
   // Array for storing ingredient amoungs
  $amounts = array();
-
  // Create amounts varchar
  foreach($_GET['quantity'] as $index => $quantity){
 	 if($quantity != ""){
 		array_push($amounts, $quantity . " " . $_GET['measurement'][$index] );
 	 }
  }
-
  // Array for storing ingredeints and amounts
  $ingredients = array();
  
  foreach($_GET['ingredient'] as $index => $ingredient_id){
  	$ingredients[$ingredient_id] = $amounts[$index];
  }
-
  // var_dump($ingredients);
  
  /*
@@ -37,15 +33,12 @@
  $peanut = array()
  
  */
-
   // Database connection 
   $db_connection = new mysqli('stardock.cs.virginia.edu', 'cs4750ayz7bs', 'cs4750', 'cs4750ayz7bs');
   if (mysqli_connect_errno()) {
       echo "Error";
   }
-
   $stmt = $db_connection->stmt_init();
-
   $smoothie_added = True;
   
   // Add smoothie
@@ -86,7 +79,6 @@
   }
   
   
-
   // Add smoothie - ingredient and amount relationship  
   foreach ($ingredients as $ingredient_id => $amount) {
   if ($stmt->prepare("INSERT INTO made_of VALUES(?, ?, ?)")) {
@@ -122,12 +114,10 @@
 	      $smoothie_added = False;
       }
   }
-
   // Adding dietary restrictions
   
   // Add a bookmark?
   
-
   if($smoothie_added){
 	  $result = "<center><h1> Smoothie Added! Thank you for contributing to the site.</h1> <br> <h3> You are now an honorary Smoothie Queen! </h3> <br> <p>  Share your favorite smoothie with us! </p> </center>";
   }else{
@@ -182,7 +172,7 @@
             <li><a href="index.php">HOME</a></li>
             <li><a href="about.html">ABOUT</a></li>
             <li><a href="search_index.php">SEARCH</a></li>
-            <li><a href="create.php">CREATE</a></li>
+            <li><a href="create.html">CREATE</a></li>
             <li><a href="profile.php">PROFILE</a></li>
             <li><a href="logout.php">LOGOUT</a></li>
             <!--<li><a data-toggle="modal" data-target="#myModal" href="#myModal"><i class="fa fa-envelope-o"></i></a></li>-->

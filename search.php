@@ -5,7 +5,7 @@ if ($mysqli->connect_errno) {
 }
 $name = $_GET['name'];
 
-if (!($stmt = $mysqli->prepare("SELECT smoothie_id, name FROM Smoothie where name LIKE CONCAT('%', ?, '%')"))) {
+if (!($stmt = $mysqli->prepare("SELECT smoothie_id, smoothie_name FROM Smoothie where name LIKE CONCAT('%', ?, '%')"))) {
     echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
 }
 
@@ -36,7 +36,7 @@ echo "<div class='container'>";
                        	echo "<li><strong>Location</strong></li>";
 					 echo "</ul>";
 					 # change to url to show smoothie information
-                echo "<a href='search.html?smoothie_id=$id' class='pricing-signup'>SELECT</a>";
+                echo "<a href='smoothie.php?smoothie_id=$id' class='pricing-signup'>SELECT</a>";
             echo "</div>"; # /pricing-option
         # END SMOOTHIE TABLE
 		echo "</div>"; # /col 		
