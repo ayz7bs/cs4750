@@ -291,7 +291,42 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 					 <i class="fa fa-circle-o"></i> Calcium <div class="input-group">
 						<input name="calcium" type="number" class="form-control" placeholder="100" aria-describedby="basic-addon2" value="0">
 						<span class="input-group-addon" id="basic-addon2">%</span>
+					</div>
+					
+				</div>
+			</div>
+		</div><!-- row -->
+		<br><br>
+		
+		<div class="row">
+			<div class="col-lg-12">
+				<p>The smoothie contains the following:</p>
+				<p>
+				<class="row">
+					<div class="col-sm-2">
+					<div class="checkbox">
+						<label>
+						<input type="checkbox" name="restriction[]" value=3 > Lactose
+						</label>
 					</div></div>
+					<div class="col-sm-2">
+					 	<div class="checkbox">
+						<label>
+						<input type="checkbox" name="restriction[]" value=1 > Nuts
+						</label>
+					</div></div>
+					<div class="col-sm-2">
+					 	<div class="checkbox">
+						<label>
+						<input type="checkbox" name="restriction[]" value=5 > Sugars
+						</label>
+					</div></div>
+					<div class="col-sm-2">
+					</div>
+					<div class="col-sm-2">
+					</div>
+					
+				</div>
 			</div>
 		</div><!-- row -->
 		<br><br>

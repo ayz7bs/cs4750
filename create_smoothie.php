@@ -26,13 +26,11 @@
  }
  // var_dump($ingredients);
  
- /*
- 
- Dietary restriction checks
- $lactose = array()
- $peanut = array()
- 
- */
+ // Dietary restriction checks
+ $lactose = array(18, 27);
+ $peanut = array(26);
+ $sugar = array(29, 30);
+
   // Database connection 
   $db_connection = new mysqli('stardock.cs.virginia.edu', 'cs4750ayz7bs', 'cs4750', 'cs4750ayz7bs');
   if (mysqli_connect_errno()) {
@@ -114,7 +112,19 @@
 	      $smoothie_added = False;
       }
   }
-  // Adding dietary restrictions
+  
+  // Dietary Restriction
+  foreach ($_GET['restriction'] as $restriction_id) {
+  if ($stmt->prepare("INSERT INTO restricted VALUES(?, ?)")) {
+       $stmt->bind_param("ii", $smoothie_id, $restriction_id);
+	   $stmt->execute();
+	   $inserts = $db_connection->affected_rows;
+	   // $inserts . " Ingredient Added <br>";
+	   if($inserts == -1){
+	      $smoothie_added = False;
+      }
+  }
+  }
   
   // Add a bookmark?
   
@@ -172,7 +182,7 @@
             <li><a href="index.php">HOME</a></li>
             <li><a href="about.html">ABOUT</a></li>
             <li><a href="search_index.php">SEARCH</a></li>
-            <li><a href="create.html">CREATE</a></li>
+            <li><a href="create.php">CREATE</a></li>
             <li><a href="profile.php">PROFILE</a></li>
             <li><a href="logout.php">LOGOUT</a></li>
             <!--<li><a data-toggle="modal" data-target="#myModal" href="#myModal"><i class="fa fa-envelope-o"></i></a></li>-->
