@@ -3,20 +3,23 @@ $mysqli = new mysqli('stardock.cs.virginia.edu', 'cs4750ayz7bs', 'cs4750', 'cs47
 if ($mysqli->connect_errno) {
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 }
-$name = $_GET['name'];
+$smoothie_name = $_GET['smoothie_name'];
 
-if (!($stmt = $mysqli->prepare("SELECT smoothie_id, smoothie_name FROM Smoothie where name LIKE CONCAT('%', ?, '%')"))) {
+
+
+if (!($stmt = $mysqli->prepare("SELECT smoothie_id, smoothie_name FROM Smoothie where smoothie_name LIKE CONCAT('%', ?, '%')"))) {
+
     echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
 }
 
-$stmt->bind_param("s", $name);
+$stmt->bind_param("s", $smoothie_name);
 
 
 if (!$stmt->execute()) {
     echo "Execute failed: (" . $mysqli->errno . ") " . $mysqli->error;
 }
 
-if (!$stmt->bind_result($id, $name)) {
+if (!$stmt->bind_result($id, $smoothie_name)) {
     echo "Binding output parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 }
 echo "<h4> Smoothie Results </h4>";
@@ -30,7 +33,7 @@ echo "<div class='container'>";
           	# START SMOOTHIE TABLE
             echo "<div class='pricing-option'>";
              	echo "<div class='pricing-top'>";
-                    echo "<span class='pricing-edition'>" . $name . "</span>";
+                    echo "<span class='pricing-edition'>" . $smoothie_name . "</span>";
                 echo "</div>";
                      echo "<ul>";
                        	echo "<li><strong>Location</strong></li>";

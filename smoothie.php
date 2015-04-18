@@ -6,7 +6,7 @@ if ($mysqli->connect_errno) {
 
 $smoothie_id = $_GET['smoothie_id'];
 
-
+ 
 // Getting Smoothie Name
 if (!($stmt = $mysqli->prepare("SELECT smoothie_name FROM Smoothie where smoothie_id = ?"))) {
     echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
@@ -45,11 +45,72 @@ if (!$stmt->bind_result($location)) {
 
       while($stmt->fetch()) {
       	// should only be one result cause id is unique
-		$place_name = $location;		
+		$place_name = $location;
+
+       }
+//Getting Ingredients and amount of Ingredients
+if (!($stmt = $mysqli->prepare("SELECT name, amount FROM Smoothie NATURAL JOIN made_of NATURAL JOIN Ingredient WHERE Smoothie_id = ?
+"))) {
+    echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+}
+
+$stmt->bind_param("i", $smoothie_id);
+
+if (!$stmt->execute()) {
+    echo "Execute failed: (" . $mysqli->errno . ") " . $mysqli->error;
+}
+
+if (!$stmt->bind_result($Name, $Amount)) {
+    echo "Binding output parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+}
+
+
+
+      #while($row = $stmt->fetch_array(MYSQLI_ASSOC)) {
+      	// should only be one result cause id is unique
+      #	$row[name];
+      	#$row[amount];
+	  
+
+      # }
+		while($stmt->fetch()) {
+      	// should only be one result cause id is unique
+      	$name=$Name;
+      	$amount=$Amount;
+	   
+	
+
        }
 
+//Getting Nutrition info
+if (!($stmt = $mysqli->prepare("SELECT calories, sugar, fiber, protein, calcium FROM Smoothie natural join smoothie_nutrition natural join Nutrition_Info where smoothie_id = 42
+"))) {
+    echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+}
 
-?>
+$stmt->bind_param("i", $smoothie_id);
+
+if (!$stmt->execute()) {
+    echo "Execute failed: (" . $mysqli->errno . ") " . $mysqli->error;
+}
+
+if (!$stmt->bind_result($Calories, $Sugar, $Fiber, $Protein, $Calcium)) {
+    echo "Binding output parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+}
+
+      while($stmt->fetch()) {
+      	// should only be one result cause id is unique
+		$calories = $Calories;
+		$sugar = $Sugar;
+		$fiber = $Fiber;
+		$protein = $Protein;
+		$calcium = $Calcium;
+
+       }
+
+	 
+
+?> 
 
 
 <!DOCTYPE html>
@@ -119,15 +180,47 @@ if (!$stmt->bind_result($location)) {
 
 
 	<div class="container desc">
+	<h2><strong>Smoothie Information</strong></h2>
+	<br>
+    <left><h3>Name: <?=$smoothie_name?></h3></left>
 	
-	<center><h1><?=$smoothie_name?></h1></center>
-	
-	
-	<center><h1><?=$place_name?></h1></center>
-	
-	
-	
-	
+	<left><h3>Location: <?=$place_name?></h3></left>
+   <!--<left><h3>ing:<?=$name?></h3></left>-->
+
+	<left><h3>Ingredients</h3>
+	<table class="table table-striped">
+			 <tr>
+			    <th>Ingredient</th>
+			    <th>Amount</th> 
+			     
+ 			 </tr>
+  			<tr>
+			    <td> <?=$name?> </td>
+			    <td> <?=$amount?> </td>
+			    	  
+			
+  			</tr>
+		</table>
+
+    <left><h3> Nutrition Information </h3>
+	<table class="table table-striped">
+			 <tr>
+			    <th>Calories</th>
+			    <th>Sugar</th> 
+			    <th>Fiber</th>
+			    <th>Proetein</th>
+			    <th>Calcium</th>
+ 			 </tr>
+  			<tr>
+			    <td> <?=$calories?> </td>
+			    <td> <?=$sugar?> </td>
+			    <td> <?=$fiber?> </td>
+			    <td> <?=$protein?> </td>
+			    <td> <?=$calcium?> </td>			  
+			
+  			</tr>
+		</table>
+	</left>
 	</div><!-- container -->
 
 	

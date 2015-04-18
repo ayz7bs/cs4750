@@ -286,7 +286,7 @@
 			    echo "Execute failed: (" . $mysqli->errno . ") " . $mysqli->error;
 			}
 
-			if (!$stmt->bind_result($id, $name)) {
+			if (!$stmt->bind_result($id, $smoothie_name)) {
 			    echo "Binding output parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 			}
 			echo "<h4> Available Smoothies</h4>";
@@ -300,7 +300,7 @@
 			          	# START SMOOTHIE TABLE
 			            echo "<div class='pricing-option'>";
 			             	echo "<div class='pricing-top'>";
-			                    echo "<span class='pricing-edition'>" . $name . "</span>";
+			                    echo "<span class='pricing-edition'>" . $smoothie_name . "</span>";
 			                echo "</div>";
 			                     echo "<ul>";
 			                       	echo "<li><strong>Location</strong></li>";
