@@ -83,9 +83,9 @@ $stmt -> store_result();
 				<h4>PROFILE PAGE</h4>
 				<p><?php echo strtoupper($_SESSION["user"]) ?>, CHECK OUT YOUR SAVED SMOOTHIES</p>
 				<p><?php 
-	while( $stmt -> fetch()){
-		echo "$s_id <br>";
-	}
+					while( $stmt -> fetch()){
+						echo "<a href=\"index.php\">$s_id</a> <br>";
+					}
 					?>
 				</p>
 				</div>
