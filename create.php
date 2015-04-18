@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <?php
 
-$fruits = array("Strawberries" => 1, "Bananas" => 2, "Blueberries" => 3, "Rasberries" => 4, "Oranges" => 5, "Mangos" => 6, "Pineapples" => 7, "Peaches" => 8, "Apples" => 9);
+$fruits = array("Strawberries" => 1, "Bananas" => 2, "Blueberries" => 3, "Raspberries" => 4, "Oranges" => 5, "Mangos" => 6, "Pineapples" => 7, "Peaches" => 8, "Apples" => 9);
 
 $veggies = array("Mixed Greens" => 10, "Carrots" => 11, "Spinach" => 12, "Avocados" => 13, "Broccoli" => 14, "Celery" => 15, "Beets" => 16, "Kale" => 17);
 
