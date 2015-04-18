@@ -1,5 +1,26 @@
 <!DOCTYPE html>
-<? session_start(); ?>
+<? session_start(); 
+
+$mysqli = new mysqli('stardock.cs.virginia.edu', 'cs4750ayz7bs', 'cs4750', 'cs4750ayz7bs');
+if ($mysqli->connect_errno) {
+    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+}
+$test = ($_SESSION["user"]);
+
+if (!($stmt = $mysqli->prepare("SELECT smoothie_name FROM favorites natural join Smoothie WHERE username='$test'"))) {
+    echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+}
+if (!$stmt->execute()) {
+    echo "Execute failed: (" . $mysqli->errno . ") " . $mysqli->error;
+}
+if (!$stmt->bind_result($s_id)) {
+    echo "Binding output parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+}
+$stmt -> store_result();
+		
+	
+?>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -61,6 +82,12 @@
 				<div class="col-lg-8 col-lg-offset-2">
 				<h4>PROFILE PAGE</h4>
 				<p><?php echo strtoupper($_SESSION["user"]) ?>, CHECK OUT YOUR SAVED SMOOTHIES</p>
+				<p><?php 
+	while( $stmt -> fetch()){
+		echo "$s_id <br>";
+	}
+					?>
+				</p>
 				</div>
 			</div><!-- row -->
 		</div><!-- container -->
