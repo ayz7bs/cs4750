@@ -14,11 +14,10 @@ if (!($stmt = $mysqli->prepare("SELECT smoothie_name, smoothie_id FROM favorites
 if (!$stmt->execute()) {
     echo "Execute failed: (" . $mysqli->errno . ") " . $mysqli->error;
 }
-if (!$stmt->bind_result($s_name, $s_id)) {
+if (!$stmt->bind_result($smoothie_name, $smoothie_id)) {
     echo "Binding output parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 }
 $stmt -> store_result();
-		
 	
 ?>
 <!DOCTYPE html>
@@ -49,6 +48,14 @@ $stmt -> store_result();
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+	
+		<script>
+	$(document).ready(function(){
+		if('<?php echo $admin; ?>' == "0"){
+			document.getElementById("adminOnly").style.display = 'none';
+		}
+	});
+	</script>
   </head>
 
   <body>
@@ -89,7 +96,7 @@ $stmt -> store_result();
 					echo "<div class='col-lg-4'>";
 			          	# START SMOOTHIE TABLE
 			            echo "<div class='pricing-option'>";
-			                echo "<a href='smoothie.php?smoothie_id=$s_id' class='pricing-signup'>$s_name</a> <br>";
+			                echo "<a href='smoothie.php?smoothie_id=$smoothie_id' class='pricing-signup'>$smoothie_name</a> <br>";
 			            echo "</div>";
 						# END SMOOTHIE TABLE
 					echo "</div>";
@@ -102,10 +109,10 @@ $stmt -> store_result();
 	</div><!--  bluewrap -->
 
 
-	<div class="container w">
+	<div id = "adminOnly" class="container w">
 		<div class="row centered">
 			<br><br>
-			<h1> Under Construction </h1>
+			<h1> If you are aren't an admin you shouldn't see this</h1>
 		</div><!-- row -->
 		<br>
 		<br>
@@ -179,3 +186,11 @@ $stmt -> store_result();
 	    </div><!-- /.modal-content -->
 	  </div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
+	
+	    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+  </body>
+</html>

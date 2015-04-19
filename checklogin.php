@@ -26,7 +26,6 @@ $result=mysql_query($sql);
 
 // Mysql_num_row is counting table row
 $count=mysql_num_rows($result);
-#$result ->store_result();
 
 $row = mysql_fetch_row($result);
 $admin_status = $row[2];
