@@ -82,12 +82,7 @@ $stmt -> store_result();
 				<div class="col-lg-8 col-lg-offset-2">
 				<h4>PROFILE PAGE</h4>
 				<p><?php echo strtoupper($_SESSION["user"]) ?>, CHECK OUT YOUR SAVED SMOOTHIES</p>
-				<p><?php 
-					while( $stmt -> fetch()){
-						echo "<a href=\"index.php\">$s_id</a> <br>";
-					}
-					?>
-				</p>
+				
 				</div>
 			</div><!-- row -->
 		</div><!-- container -->
@@ -97,7 +92,19 @@ $stmt -> store_result();
 	<div class="container w">
 		<div class="row centered">
 			<br><br>
-			<h1> Under Construction </h1>
+			<p><?php 
+					while( $stmt -> fetch()){
+					echo "<div class='col-lg-4'>"; # START SMOOTHIE TABLE
+						echo "<div class='pricing-option'>";
+							#echo "<div class='pricing-top'>";
+								echo "<span class='pricing-edition'>" . $name . "</span>";
+							#echo "</div>";
+							echo "<a href=\"index.php\" class='pricing-signup'>$s_id </a> <br>";
+						echo "</div>"; # /pricing-option
+					echo "</div>";	 # END SMOOTHIE TABLE
+					}
+					?>
+				</p>
 		</div><!-- row -->
 		<br>
 		<br>
