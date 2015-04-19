@@ -26,16 +26,21 @@ $result=mysql_query($sql);
 
 // Mysql_num_row is counting table row
 $count=mysql_num_rows($result);
+#$result ->store_result();
 
+$row = mysql_fetch_row($result);
+$admin_status = $row[2];
 // If result matched $myusername and $mypassword, table row must be 1 row
 if($count==1){
 
 // Register $myusername, $mypassword and redirect to file "index.php"
 session_register("myusername");
 session_register("mypassword"); 
+session_register('$admin_status');
 session_start();
 
 $_SESSION['user'] = $_POST['myusername'];
+$_SESSION['admin'] = "$admin_status";
 
 header("location:index.php");
 }
