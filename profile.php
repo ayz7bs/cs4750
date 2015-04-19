@@ -86,7 +86,7 @@ $stmt -> store_result();
 				<p><?php echo strtoupper($_SESSION["user"]) ?>, CHECK OUT YOUR SAVED SMOOTHIES</p>
 				<p><?php 
 					while( $stmt -> fetch()){
-						echo "<a href='smoothie.php?=$s_id'>$s_name</a> <br>";
+						echo "<a href='smoothie.php?smoothie_id=$s_id'>$s_name</a> <br>";
 					}
 					?>
 				</p>
