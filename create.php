@@ -1,16 +1,9 @@
-
 <!DOCTYPE html>
 <?php
-
 $fruits = array("Strawberries" => 1, "Bananas" => 2, "Blueberries" => 3, "Rasberries" => 4, "Oranges" => 5, "Mangos" => 6, "Pineapples" => 7, "Peaches" => 8, "Apples" => 9);
-
 $veggies = array("Mixed Greens" => 10, "Carrots" => 11, "Spinach" => 12, "Avocados" => 13, "Broccoli" => 14, "Celery" => 15, "Beets" => 16, "Kale" => 17);
-
 $liquids = array("Milk" => 18, "Water" => 19, "Coconut Milk" => 20, "Coconut Water" => 21, "Almond Milk" => 22, "Fruit Juice" => 23);
-
 $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yogurt" => 27, "Sugar" => 29, "Honey" => 30);
-
-
 ?>
 <html lang="en">
   <head>
@@ -389,7 +382,7 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 						hi@blacktie.co
 		        	</p>
 		        	<div id="mapwrap">
-		<iframe height="300" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.es/maps?t=m&amp;ie=UTF8&amp;ll=52.752693,22.791016&amp;spn=67.34552,156.972656&amp;z=2&amp;output=embed"></iframe>
+		<iframe height="300" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 					</div>	
 		        </div>
 	      </div>

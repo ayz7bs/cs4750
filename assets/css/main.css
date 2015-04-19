@@ -452,3 +452,34 @@ a:after {
 .panel-group .panel-heading + .panel-collapse .panel-body {
 	border-top: 0px;
 }
+
+.glyphicon-heart {
+	font-size: 17px;
+}
+
+#favoriteHeart {
+	border: 0px;
+}
+
+.btn-primary:hover {
+	color: #ff7878;
+
+	box-shadow: 0 0px 0 0 white;
+	
+}
+
+.btn-primary.raised {
+    box-shadow: 0 3px 0 0 #007299;
+}
+
+.btn-primary.raised:active, .btn-primary.raised.active {
+    background: #33a6cc;
+    box-shadow: none;
+    margin-bottom: -3px;
+    margin-top: 3px;
+}
+
+.pink {
+	color: #ff7878;
+}
+

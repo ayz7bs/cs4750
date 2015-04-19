@@ -1,4 +1,6 @@
 <?php
+session_start(); 
+
 $mysqli = new mysqli('stardock.cs.virginia.edu', 'cs4750ayz7bs', 'cs4750', 'cs4750ayz7bs');
 if ($mysqli->connect_errno) {
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
@@ -109,7 +111,30 @@ if (!$stmt->bind_result($Calories, $Sugar, $Fiber, $Protein, $Calcium)) {
 
        }
 
+ // Check if smoothie is already in favorites list
+ 
+if (!($stmt = $mysqli->prepare("SELECT username, smoothie_id from User natural join favorites natural join Smoothie where username = ? AND smoothie_id = ? LIMIT 1"))) {
+    echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+}
+
+$stmt->bind_param("si", $_SESSION["user"], $smoothie_id);
+
+if (!$stmt->execute()) {
+    echo "Execute failed: (" . $mysqli->errno . ") " . $mysqli->error;
+}
+
+if (!$stmt->bind_result($username, $smoothie_id)) {
+    echo "Binding output parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+}
+
+	  $favorite = False;
 	 
+      while($stmt->fetch()) {
+
+		  if($username == $_SESSION["user"]){
+			  $favorite = True;
+		  }
+       } 	 
 
 ?> 
 
@@ -132,6 +157,9 @@ if (!$stmt->bind_result($Calories, $Sugar, $Fiber, $Protein, $Calcium)) {
 
     <!-- Custom styles for this template -->
     <link href="assets/css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -140,6 +168,38 @@ if (!$stmt->bind_result($Calories, $Sugar, $Fiber, $Protein, $Calcium)) {
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
   </head>
+  
+   <script>
+			$(document).ready(function() {
+			
+				$("#favoriteHeart").click(function(){
+					
+					$.ajax({
+						url: 'favorite.php',
+						type: 'GET',
+						data: {smoothie_id: <?=$smoothie_id?>, username: '<?echo $_SESSION["user"]?>' },
+						success: function(data){
+							// clear current div
+							// $('#dg').empty();
+							
+							// show new data
+							
+							$('#message').html(data);
+							document.getElementById("favoriteHeart").style.color = "#ff7878";
+							
+						}
+					});
+				});
+				
+				
+				$(function () {
+					$('[data-toggle="tooltip"]').tooltip()
+				})
+
+			});
+ 
+		</script>
+
 
   <body>
 
@@ -172,7 +232,7 @@ if (!$stmt->bind_result($Calories, $Sugar, $Fiber, $Protein, $Calcium)) {
 		<div class="container">
 			<div class="row centered">
 				<div class="col-lg-8 col-lg-offset-2">
-				<h4>LEARN MORE ABOUT THIS SMOOTHIE</h4>
+				<h4>SMOOTHIE INFORMATION</h4>
 				<p>Love it? Add it to your favorites.</p>
 				</div>
 			</div><!-- row -->
@@ -181,10 +241,12 @@ if (!$stmt->bind_result($Calories, $Sugar, $Fiber, $Protein, $Calcium)) {
 
 
 	<div class="container desc">
-	<h2><strong>Smoothie Information</strong></h2>
+	<h2><strong><?=$smoothie_name?> <button <? if ($favorite) { ?> style="color: #ff7878" <? } ?> id="favoriteHeart" type="button" class="btn btn-primary raised btn-sm" <? if (!$favorite) { ?> data-toggle="tooltip" data-placement="right" title="Add to favorites." <? } ?> >
+  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+</button></strong></h2>
+<hr>
+	<div id="message"></div>
 	<br>
-    <left><h3>Name: <?=$smoothie_name?></h3></left>
-	
 	<left><h3>Location: <?=$place_name?></h3></left>
    <!--<left><h3>ing:<?=$name?></h3></left>-->
    <br>
@@ -219,11 +281,11 @@ if (!$stmt->bind_result($Calories, $Sugar, $Fiber, $Protein, $Calcium)) {
 			    <th>Calcium</th>
  			 </tr>
   			<tr>
-			    <td> <?=$calories?> </td>
-			    <td> <?=$sugar?> </td>
-			    <td> <?=$fiber?> </td>
-			    <td> <?=$protein?> </td>
-			    <td> <?=$calcium?> </td>			  
+			    <td> <?=$calories?> cal </td>
+			    <td> <?=$sugar?> g </td>
+			    <td> <?=$fiber?> g </td>
+			    <td> <?=$protein?> g </td>
+			    <td> <?=$calcium?> % </td>			  
 			
   			</tr>
 		</table>
@@ -274,7 +336,7 @@ if (!$stmt->bind_result($Calories, $Sugar, $Fiber, $Protein, $Calcium)) {
 						hi@blacktie.co
 		        	</p>
 		        	<div id="mapwrap">
-		<iframe height="300" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.es/maps?t=m&amp;ie=UTF8&amp;ll=52.752693,22.791016&amp;spn=67.34552,156.972656&amp;z=2&amp;output=embed"></iframe>
+		<iframe height="300" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 					</div>	
 		        </div>
 	      </div>
