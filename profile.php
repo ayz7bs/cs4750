@@ -86,7 +86,13 @@ $stmt -> store_result();
 				<p><?php echo strtoupper($_SESSION["user"]) ?>, CHECK OUT YOUR SAVED SMOOTHIES</p>
 				<p><?php 
 					while( $stmt -> fetch()){
-						echo "<a href='smoothie.php?smoothie_id=$s_id'>$s_name</a> <br>";
+					echo "<div class='col-lg-4'>";
+			          	# START SMOOTHIE TABLE
+			            echo "<div class='pricing-option'>";
+			                echo "<a href='smoothie.php?smoothie_id=$s_id' class='pricing-signup'>$s_name</a> <br>";
+			            echo "</div>";
+						# END SMOOTHIE TABLE
+					echo "</div>";
 					}
 					?>
 				</p>
@@ -112,92 +118,7 @@ $stmt -> store_result();
 			<div class="row centered">
 				<h4>SMOOTHES = LIFE</h4>
 				<br>
-				
-			<!-- First Chart -->
-			<!--
-			<div class="col-lg-3">
-				<canvas id="canvas" height="130" width="130"></canvas>
-				<br>
-				<script>
-					var doughnutData = [
-							{
-								value: 70,
-								color:"#3498db"
-							},
-							{
-								value : 30,
-								color : "#ecf0f1"
-							}
-						];
-						var myDoughnut = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(doughnutData);
-				</script>
-				<p><b>Design & Brand</b></p>
-				<p><small>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</small></p>
-			</div><!-- /col-lg-3 -->
-
-			<!-- Second Chart -->
-			<!--<div class="col-lg-3">
-				<canvas id="canvas2" height="130" width="130"></canvas>
-				<br>
-				<script>
-					var doughnutData = [
-							{
-								value: 90,
-								color:"#3498db"
-							},
-							{
-								value : 10,
-								color : "#ecf0f1"
-							}
-						];
-						var myDoughnut = new Chart(document.getElementById("canvas2").getContext("2d")).Doughnut(doughnutData);
-				</script>
-				<p><b>Web Development</b></p>
-				<p><small>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</small></p>
-			</div><!-- /col-lg-3 -->
-			
-			<!-- Third Chart -->
-			<!--<div class="col-lg-3">
-				<canvas id="canvas3" height="130" width="130"></canvas>
-				<br>
-				<script>
-					var doughnutData = [
-							{
-								value: 50,
-								color:"#3498db"
-							},
-							{
-								value : 50,
-								color : "#ecf0f1"
-							}
-						];
-						var myDoughnut = new Chart(document.getElementById("canvas3").getContext("2d")).Doughnut(doughnutData);
-				</script>
-				<p><b>Seo Services</b></p>
-				<p><small>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</small></p>
-			</div><!-- /col-lg-3 -->
-			
-			<!-- Fourth Chart -->
-			<!--<div class="col-lg-3">
-				<canvas id="canvas4" height="130" width="130"></canvas>
-				<br>
-				<script>
-					var doughnutData = [
-							{
-								value: 80,
-								color:"#3498db"
-							},
-							{
-								value : 20,
-								color : "#ecf0f1"
-							}
-						];
-						var myDoughnut = new Chart(document.getElementById("canvas4").getContext("2d")).Doughnut(doughnutData);
-				</script>
-				<p><b>Printing</b></p>
-				<p><small>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</small></p>
-			</div><!-- /col-lg-3 -->
-				
+	
 				
 			</div><!-- row -->
 		</div><!-- container -->
@@ -258,14 +179,3 @@ $stmt -> store_result();
 	    </div><!-- /.modal-content -->
 	  </div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
->>>>>>> Add favorites button. Closes #12.
-
-if($admin){
-	echo "this is a test for admin truth";
-}
-echo "<br>";
-
-?>
-<script>
-	document.write(<?php echo $admin ?>);
-</script>
