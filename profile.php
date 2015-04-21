@@ -53,7 +53,8 @@ $stmt -> store_result();
 	$(document).ready(function(){
 		if('<?php echo $admin; ?>' == "0"){
 			document.getElementById("adminOnly").style.display = 'none';
-		}
+		}			
+		
 	});
 	</script>
   </head>
@@ -91,18 +92,15 @@ $stmt -> store_result();
 				<div class="col-lg-8 col-lg-offset-2">
 				<h4>PROFILE PAGE</h4>
 				<p><?php echo strtoupper($_SESSION["user"]) ?>, CHECK OUT YOUR SAVED SMOOTHIES</p>
-				<p><?php 
-					while( $stmt -> fetch()){
-					echo "<div class='col-lg-4'>";
-			          	# START SMOOTHIE TABLE
-			            echo "<div class='pricing-option'>";
-			                echo "<a href='smoothie.php?smoothie_id=$smoothie_id' class='pricing-signup'>$smoothie_name</a> <br>";
-			            echo "</div>";
-						# END SMOOTHIE TABLE
-					echo "</div>";
-					}
+				<p><div class='col-lg-4'>
+					<?php 
+						while( $stmt -> fetch()){
+							echo "<div class='pricing-option'>";
+								echo "<a href='smoothie.php?smoothie_id=$smoothie_id' class='pricing-signup'>$smoothie_name</a> ";
+							echo "</div>";
+						}
 					?>
-				</p>
+				</div></p>
 				</div>
 			</div><!-- row -->
 		</div><!-- container -->

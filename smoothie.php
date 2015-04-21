@@ -243,7 +243,7 @@ if (!$stmt->bind_result($username, $smoothie_id)) {
 	<div class="container desc">
 	<h2><strong><?=$smoothie_name?> <button <? if ($favorite) { ?> style="color: #ff7878" <? } ?> id="favoriteHeart" type="button" class="btn btn-primary raised btn-sm" <? if (!$favorite) { ?> data-toggle="tooltip" data-placement="right" title="Add to favorites." <? } ?> >
   <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-</button></strong></h2>
+</button> </strong></h2>
 <hr>
 	<div id="message"></div>
 	<br>

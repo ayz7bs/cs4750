@@ -18,10 +18,18 @@
       // echo $inserts . " Smoothie Added <br>";
       
   }
+
   
   
   if($inserts == -1){
-	      echo "Smoothie already added to favorites.";
+    if($stmt->prepare("DELETE FROM favorites where username = ? AND smoothie_id = ?")) {
+      $stmt->bind_param("si", $username, $smoothie_id);
+      $stmt->execute();
+      $inserts = $db_connection->affected_rows;
+      // echo $inserts . " Smoothie Added <br>";
+      
+  }
+	      echo "This smoothie has been removed from your favorites!";
   }else{
 	  echo "This smoothie has been added to your favorites!";
   }
