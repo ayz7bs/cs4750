@@ -18,8 +18,13 @@ if (!$stmt->bind_result($smoothie_name, $smoothie_id)) {
     echo "Binding output parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 }
 $stmt -> store_result();
+
+
+
 	
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -55,17 +60,21 @@ $stmt -> store_result();
 			document.getElementById("adminOnly").style.display = 'none';
 		}	
 
-				$("#export").click(function(){
-					alert("here");
-					$.ajax({
-						url: 'export.php',
-						type: 'GET',
-						data: {smoothie_id: <?=$smoothie_id?>, username: '<?echo $_SESSION["user"]?>' },
-						success: function(data){
+		$("#export").click(function(){
+			alert("here");
+			$.ajax({
+				url: 'export.php',
+				type: 'GET',
+				data: {smoothie_id: <?=$smoothie_id?>, username: '<?echo $_SESSION["user"]?>' },
+				success: function(data){
+				}
+			});
+		});	
 
-						}
-					});
-				});		
+		$("#totoggle").click(function() {
+			document.getElementById("showTables").style.display = 'none';
+		});
+
 		
 	});
 	</script>
@@ -123,7 +132,24 @@ $stmt -> store_result();
 		<div class="row centered">
 			<br><br>
 			<h1> If you are aren't an admin you shouldn't see this</h1>
-			<button id = "export"> test </button>
+			<button id = "totoggle">Display Tables</button>
+			<div id = "showTables" class="col-lg-8 col-lg-offset-2" style = 'display:none'>
+				<p><div class='col-lg-4'>
+					<?php 
+					$sql = "SHOW TABLES";
+					$result = $mysqli->query($sql);
+
+					if ($result->num_rows > 0) {
+					// output data of each row
+						while($row = $result->fetch_assoc()) {
+							echo $row["Tables_in_cs4750ayz7bs"]. "<br>";
+						}
+					}
+					?>
+				</div></p>
+				</div>
+			
+		
 		</div><!-- row -->
 		<br>
 		<br>
@@ -166,42 +192,12 @@ $stmt -> store_result();
 			</div><!-- row -->
 		</div><!-- container -->
 	</div><!-- Footer -->
-
-
-	<!-- MODAL FOR CONTACT -->
-	<!-- Modal -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	        <h4 class="modal-title" id="myModalLabel">contact us</h4>
-	      </div>
-	      <div class="modal-body">
-		        <div class="row centered">
-		        	<p>We are available 24/7, so don't hesitate to contact us.</p>
-		        	<p>
-		        		Somestreet Ave, 987<br/>
-						London, UK.<br/>
-						+44 8948-4343<br/>
-						hi@blacktie.co
-		        	</p>
-		        	<div id="mapwrap">
-		<iframe height="300" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-					</div>	
-		        </div>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-danger" data-dismiss="modal">Save & Go</button>
-	      </div>
-	    </div><!-- /.modal-content -->
-	  </div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->
 	
 	    <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   </body>
 </html>
