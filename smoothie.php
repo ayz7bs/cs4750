@@ -185,7 +185,12 @@ if (!$stmt->bind_result($username, $smoothie_id)) {
 							// show new data
 							
 							$('#message').html(data);
-							document.getElementById("favoriteHeart").style.color = "#ff7878";
+							if(data.indexOf('added') != -1) {
+								document.getElementById("favoriteHeart").style.color = "#ff7878";
+							}else {
+								document.getElementById("favoriteHeart").style.color = "white";
+							}
+							
 							
 						}
 					});
