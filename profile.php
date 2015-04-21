@@ -53,7 +53,19 @@ $stmt -> store_result();
 	$(document).ready(function(){
 		if('<?php echo $admin; ?>' == "0"){
 			document.getElementById("adminOnly").style.display = 'none';
-		}			
+		}	
+
+				$("#export").click(function(){
+					alert("here");
+					$.ajax({
+						url: 'export.php',
+						type: 'GET',
+						data: {smoothie_id: <?=$smoothie_id?>, username: '<?echo $_SESSION["user"]?>' },
+						success: function(data){
+
+						}
+					});
+				});		
 		
 	});
 	</script>
@@ -111,6 +123,7 @@ $stmt -> store_result();
 		<div class="row centered">
 			<br><br>
 			<h1> If you are aren't an admin you shouldn't see this</h1>
+			<button id = "export"> test </button>
 		</div><!-- row -->
 		<br>
 		<br>
