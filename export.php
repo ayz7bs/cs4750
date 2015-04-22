@@ -1,14 +1,53 @@
- <?php
-	
-        //ENTER THE RELEVANT INFO BELOW
-        $mysqlDatabaseName ='cs4750ayz7bs';
-        $mysqlUserName ='cs4750ayz7bs';
-        $mysqlPassword ='cs4750';
-        $mysqlHostName ='stardock.cs.virginia.edu';
-        $mysqlExportPath ='test.sql';
+<?php
 
-        //DO NOT EDIT BELOW THIS LINE
-        //Export the database and output the status to the page
-        $command='mysqldump --opt -h' .$mysqlHostName .' -u' .$mysqlUserName .' -p' .$mysqlPassword .' ' .$mysqlDatabaseName .' > ~/' .$mysqlExportPath;
-        exec($command);
- ?>
+// Database Connection
+
+$host="stardock.cs.virginia.edu";
+$uname="cs4750ayz7bs";
+$pass="cs4750";
+$database = "cs4750ayz7bs"; 
+
+$connection=mysql_connect($host,$uname,$pass); 
+
+echo mysql_error();
+
+//or die("Database Connection Failed");
+$selectdb=mysql_select_db($database) or 
+die("Database could not be selected"); 
+$result=mysql_select_db($database)
+or die("database cannot be selected <br>");
+
+// Fetch Record from Database
+
+$output = "";
+$table = "Smoothie"; // Enter Your Table Name 
+$sql = mysql_query("select * from $table");
+$columns_total = mysql_num_fields($sql);
+
+// Get The Field Name
+
+for ($i = 0; $i < $columns_total; $i++) {
+$heading = mysql_field_name($sql, $i);
+$output .= '"'.$heading.'",';
+}
+$output .="\n";
+
+// Get Records from the table
+
+while ($row = mysql_fetch_array($sql)) {
+for ($i = 0; $i < $columns_total; $i++) {
+$output .='"'.$row["$i"].'",';
+}
+$output .="\n";
+}
+
+// Download the file
+
+$filename = "myFile.csv";
+header('Content-type: application/csv');
+header('Content-Disposition: attachment; filename='.$filename);
+
+echo $output;
+exit;
+
+?>
