@@ -1,7 +1,7 @@
 <?php
  // General Info
 $smoothie_name_test = $_GET['smoothie_name'];
-$place_name_test = $_GET['place_name'];
+$place_name_test = $_GET['place'];
 
 $smoothie_name = trim($smoothie_name_test);
 $place_name = trim($place_name_test);
@@ -12,6 +12,10 @@ $place_name = trim($place_name_test);
  $fiber = $_GET['fiber'];
  $protein = $_GET['protein'];
  $calcium = $_GET['calcium'];
+ 
+ // Place array with id values
+ $place = array("Smoothie King" => 78, "Tropical Smoothie Cafe" => 80, "Freshens" => 81, "The Juice Laundry" => 82, "Other" => 83);
+ 
  
   // Array for storing ingredient amoungs
  $amounts = array(); 
@@ -58,22 +62,9 @@ $place_name = trim($place_name_test);
       
   }
   
- 
-  // Add place
-  if($stmt->prepare("INSERT INTO Place values(NULL, ?)")) {
-      $stmt->bind_param("s", $place_name);
-      $stmt->execute();
-      $inserts = $db_connection->affected_rows;
-      $place_id = $db_connection->insert_id;
-      // $inserts . " Place Added <br>";
-      if($inserts == -1){
-	      $smoothie_added = False;
-      }
-  }
-  
   // Add smoothie - place relationship
   if ($stmt->prepare("INSERT INTO sold_at VALUES(?, ?)")) {
-       $stmt->bind_param("ii", $smoothie_id, $place_id);
+       $stmt->bind_param("ii", $smoothie_id, $place[$place_name]);
 	   $stmt->execute();
 	   $inserts = $db_connection->affected_rows;
 	   // $inserts . " SP Added <br>";
@@ -144,6 +135,8 @@ $place_name = trim($place_name_test);
 	  $result = "<center><h1> Apologies, but an error has occurred. </h1> <br> <h3> We will fix this error as soon as we can. </h3> <br> <p> Feel free to contact us about any other issues </p> </center>";
   }
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">

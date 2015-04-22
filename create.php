@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+
 $fruits = array("Strawberries" => 1, "Bananas" => 2, "Blueberries" => 3, "Rasberries" => 4, "Oranges" => 5, "Mangos" => 6, "Pineapples" => 7, "Peaches" => 8, "Apples" => 9);
 $veggies = array("Mixed Greens" => 10, "Carrots" => 11, "Spinach" => 12, "Avocados" => 13, "Broccoli" => 14, "Celery" => 15, "Beets" => 16, "Kale" => 17);
 $liquids = array("Milk" => 18, "Water" => 19, "Coconut Milk" => 20, "Coconut Water" => 21, "Almond Milk" => 22, "Fruit Juice" => 23);
@@ -94,11 +95,15 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 			<div class="col-lg-6">
 			<form action="create_smoothie.php" method="GET">
 				<h4>LOCATION</h4>
-					<div class="input-group">
-						<input name="place_name" required type="text" class="form-control" placeholder="Smoothie Land" aria-describedby="basic-addon2">
+					<div class="input-group-btn">
+						<select class="form-control" name="place">
+								<option>Smoothie King</option>
+								<option>Tropical Smoothie Cafe</option>
+								<option>Freshens</option>
+								<option>The Juice Laundry</option>
+								<option>Other</option>
+						</select>
 					</div>
-					<!-- Development<br/>
-					<i class="fa fa-link"></i> <a href="#">BlackTie.co</a>-->
 				</p>
 			</div>
 		</div><!-- row -->
