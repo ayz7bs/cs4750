@@ -73,11 +73,6 @@ $stmt -> store_result();
 				}
 			});
 		});	
-
-		$("#totoggle").click(function() {
-			document.getElementById("showTables").style.display = 'none';
-		});
-
 		
 	});
 	</script>
@@ -135,7 +130,9 @@ $stmt -> store_result();
 		<div class="row centered">
 			<br><br>
 			<h1> If you are aren't an admin you shouldn't see this</h1>
-			<button id = "totoggle">Display Tables</button>
+			
+			
+			<!--<button id = "totoggle">Display Tables</button>
 			<div id = "showTables" class="col-lg-8 col-lg-offset-2" style = 'display:none'>
 				<p><div class='col-lg-4'>
 					<?php 
@@ -150,9 +147,34 @@ $stmt -> store_result();
 					}
 					?>
 				</div></p>
-				</div>
+				</div> -->
 			
-		
+	  <div class="panel panel-primary">
+    <div class="panel-heading admin-panel">
+      <h4 class="panel-title admin-panel">
+        <a class="accordion-toggle collapsed admin-panel" data-toggle="collapse" data-parent="#accordion" href="#collapse">Display Database Tables</a>
+      </h4>
+    </div>
+    <div id="collapse" class="panel-collapse collapse">
+      <div class="panel-body">
+        
+        	<?php 
+			$sql = "SHOW TABLES";
+			$result = $mysqli->query($sql);
+
+			if ($result->num_rows > 0) {
+			// output data of each row
+				while($row = $result->fetch_assoc()) {
+					echo $row["Tables_in_cs4750ayz7bs"]. "<br>";
+				}
+			}
+			?>
+        
+      </div>
+    </div>
+  </div>
+  
+  								
 		</div><!-- row -->
 		<br>
 		<br>

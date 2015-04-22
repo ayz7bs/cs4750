@@ -466,7 +466,7 @@ a:after {
 }
 
 .btn-primary:hover {
-	color: #ff7878;
+	color: #ff7979;
 
 	box-shadow: 0 0px 0 0 white;
 	
@@ -489,4 +489,17 @@ a:after {
 
 .left-padding {
 	padding-left: 5px;
+}
+
+.admin-panel{
+	color: white;
+}
+
+.admin-panel:hover{
+	color: #ff7979;
+}
+
+a:hover, a:focus {
+	color: #ff7979;
+	
 }
