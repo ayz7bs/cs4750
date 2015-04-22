@@ -130,6 +130,7 @@ $stmt -> store_result();
 		<div class="row centered">
 			<br><br>
 			<h1> If you are aren't an admin you shouldn't see this</h1>
+			<a href="export.php">Export All Smoothies</a>
 			
 			
 			<!--<button id = "totoggle">Display Tables</button>
