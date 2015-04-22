@@ -56,9 +56,12 @@ $stmt -> store_result();
 	
 		<script>
 	$(document).ready(function(){
-		if('<?php echo $admin; ?>' == "0"){
-			document.getElementById("adminOnly").style.display = 'none';
+		if('<?php echo $admin; ?>' == "1"){
+			
 		}	
+		else{
+			document.getElementById("adminOnly").style.display = 'none';
+		}
 
 		$("#export").click(function(){
 			alert("here");
