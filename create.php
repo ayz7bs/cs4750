@@ -168,7 +168,7 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 									  <div class="panel-body no-padding no-background ">
 										  <div id="amount" class="input-group col-lg-8">
 										  <form action="create_smoothie.php" method="GET">
-											  <input class="form-control" name="quantity[]" type="text">
+											  <input class="form-control" name="quantity[]" type="number">
 											  <div class="input-group-btn">
 												  <select class="form-control" name="measurement[]">
 													  <option>cup(s)</option>
@@ -202,7 +202,7 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 								  <div id="collapse<?=(string)$id?>" class="panel-collapse collapse">
 									  <div class="panel-body no-padding no-background ">
 										  <div id="amount" class="input-group col-lg-8">
-											  <input class="form-control" name="quantity[]" type="text">
+											  <input class="form-control" name="quantity[]" type="number">
 											  <div class="input-group-btn">
 												  <select class="form-control" name="measurement[]">
 													  <option>cup(s)</option>
@@ -236,7 +236,7 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 								  <div id="collapse<?=(string)$id?>" class="panel-collapse collapse">
 									  <div class="panel-body no-padding no-background ">
 										  <div id="amount" class="input-group col-lg-8">
-											  <input class="form-control" name="quantity[]" type="text">
+											  <input class="form-control" name="quantity[]" type="number">
 											  <div class="input-group-btn">
 												  <select class="form-control" name="measurement[]">
 													  <option>cup(s)</option>
