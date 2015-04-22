@@ -133,7 +133,7 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 									  <div class="panel-body no-padding no-background ">
 										  <div id="amount" class="input-group col-lg-8">
 										  <form action="create_smoothie.php" method="GET">
-											  <input class="form-control" name="quantity[]" type="number">
+											  <input class="form-control" name="quantity[]" type="number" min="0">
 											  <div class="input-group-btn">
 												  <select class="form-control" name="measurement[]">
 													  <option>cup(s)</option>
@@ -168,7 +168,7 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 									  <div class="panel-body no-padding no-background ">
 										  <div id="amount" class="input-group col-lg-8">
 										  <form action="create_smoothie.php" method="GET">
-											  <input class="form-control" name="quantity[]" type="number">
+											  <input class="form-control" name="quantity[]" type="number" min="0">
 											  <div class="input-group-btn">
 												  <select class="form-control" name="measurement[]">
 													  <option>cup(s)</option>
@@ -202,7 +202,7 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 								  <div id="collapse<?=(string)$id?>" class="panel-collapse collapse">
 									  <div class="panel-body no-padding no-background ">
 										  <div id="amount" class="input-group col-lg-8">
-											  <input class="form-control" name="quantity[]" type="number">
+											  <input class="form-control" name="quantity[]" type="number" min="0">
 											  <div class="input-group-btn">
 												  <select class="form-control" name="measurement[]">
 													  <option>cup(s)</option>
@@ -236,7 +236,7 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 								  <div id="collapse<?=(string)$id?>" class="panel-collapse collapse">
 									  <div class="panel-body no-padding no-background ">
 										  <div id="amount" class="input-group col-lg-8">
-											  <input class="form-control" name="quantity[]" type="number ">
+											  <input class="form-control" name="quantity[]" type="number" min="0">
 											  <div class="input-group-btn">
 												  <select class="form-control" name="measurement[]">
 													  <option>cup(s)</option>
@@ -262,27 +262,27 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 					<div class="col-sm-2">
 					<form action="create_smoothie.php" method="GET">
 					 <i class="fa fa-circle-o"></i> Total Calories <div class="input-group">
-						<input name="calories" type="number" class="form-control" placeholder="200" aria-describedby="basic-addon2" value="0">
+						<input name="calories" type="number" min="0" class="form-control" placeholder="200" aria-describedby="basic-addon2" value="0">
 						<span class="input-group-addon" id="basic-addon2">cal</span>
 					</div></div>
 					<div class="col-sm-2">
 					 <i class="fa fa-circle-o"></i> Sugar <div class="input-group">
-						<input name="sugar" type="number" class="form-control" placeholder="50" aria-describedby="basic-addon2" value="0">
+						<input name="sugar" type="number" min="0" class="form-control" placeholder="50" aria-describedby="basic-addon2" value="0">
 						<span class="input-group-addon" id="basic-addon2">g</span>
 					</div></div>
 					<div class="col-sm-2">
 					 <i class="fa fa-circle-o"></i> Fiber <div class="input-group">
-						<input name="fiber" type="number" class="form-control" placeholder="100" aria-describedby="basic-addon2" value="0">
+						<input name="fiber" type="number" min="0" class="form-control" placeholder="100" aria-describedby="basic-addon2" value="0">
 						<span class="input-group-addon" id="basic-addon2">g</span>
 					</div></div>
 					<div class="col-sm-2">
 					 <i class="fa fa-circle-o"></i> Protein <div class="input-group">
-						<input name="protein" type="number" class="form-control" placeholder="200" aria-describedby="basic-addon2" value="0">
+						<input name="protein" type="number" min="0" class="form-control" placeholder="200" aria-describedby="basic-addon2" value="0">
 						<span class="input-group-addon" id="basic-addon2">g</span>
 					</div></div>
 					<div class="col-sm-2">
 					 <i class="fa fa-circle-o"></i> Calcium <div class="input-group">
-						<input name="calcium" type="number" class="form-control" placeholder="100" aria-describedby="basic-addon2" value="0">
+						<input name="calcium" type="number" min="0" class="form-control" placeholder="100" aria-describedby="basic-addon2" value="0">
 						<span class="input-group-addon" id="basic-addon2">%</span>
 					</div>
 					
