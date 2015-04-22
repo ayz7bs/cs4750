@@ -1,7 +1,10 @@
 <?php
  // General Info
- $smoothie_name = $_GET['smoothie_name'];
- $place_name = $_GET['place_name'];
+$smoothie_name_test = $_GET['smoothie_name'];
+$place_name_test = $_GET['place_name'];
+
+$smoothie_name = trim($smoothie_name_test);
+$place_name = trim($place_name_test);
  
  // Nutritional Info
  $calories = $_GET['calories'];
@@ -39,6 +42,9 @@
   $stmt = $db_connection->stmt_init();
   $smoothie_added = True;
   
+  
+  if(strlen($smoothie_name) > 0){
+	  if(strlen($place_name) > 0){
   // Add smoothie
   if($stmt->prepare("INSERT INTO Smoothie values(NULL, ?)")) {
       $stmt->bind_param("s", $smoothie_name);
@@ -124,6 +130,8 @@
 	      $smoothie_added = False;
       }
   }
+  }}}{
+	  $smoothie_added = False;
   }
   
   // Add a bookmark?
