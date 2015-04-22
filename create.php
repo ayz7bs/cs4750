@@ -83,7 +83,7 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 			<form action="create_smoothie.php" method="GET">
 				<h4>SMOOTHIE NAME</h4>
 					<div class="input-group">
-						<input name="smoothie_name" type="text" class="form-control" placeholder="Yummy-in-my-tummy" aria-describedby="basic-addon2">
+						<input name="smoothie_name" required type="text" class="form-control" placeholder="Yummy-in-my-tummy" aria-describedby="basic-addon2">
 						
 					</div>
 					<!-- Development<br/>
@@ -95,7 +95,7 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 			<form action="create_smoothie.php" method="GET">
 				<h4>LOCATION</h4>
 					<div class="input-group">
-						<input name="place_name" type="text" class="form-control" placeholder="Smoothie Land" aria-describedby="basic-addon2">
+						<input name="place_name" required type="text" class="form-control" placeholder="Smoothie Land" aria-describedby="basic-addon2">
 					</div>
 					<!-- Development<br/>
 					<i class="fa fa-link"></i> <a href="#">BlackTie.co</a>-->
