@@ -4,31 +4,21 @@ if ($mysqli->connect_errno) {
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 }
 $name = $_GET['type'];
-
 if ($name != ""){
-  if (!($stmt = $mysqli->prepare("SELECT name FROM Smoothie Natural Join restricted Natural Join Dietary_Restriction WHERE type = ?"))) {
+  if (!($stmt = $mysqli->prepare("select smoothie_name from Smoothie where smoothie_name not in (SELECT smoothie_name FROM Smoothie Natural Join restricted Natural Join Dietary_Restriction WHERE type = ?)"))) {
       echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
   }
-
   $stmt->bind_param("s", $name);
-
-
   if (!$stmt->execute()) {
       echo "Execute failed: (" . $mysqli->errno . ") " . $mysqli->error;
   }
-
   if (!$stmt->bind_result($name)) {
       echo "Binding output parameters failed: (" . $stmt->errno . ") " . $stmt->error;
   }
-
-
-
   echo "<h4> Smoothie Results </h4>";
   echo "<br><br>";
   echo "<div class='container'>";
     echo "<div class='row centered'>";
-
-
         while($stmt->fetch()) {
             echo "<div class='col-lg-4'>";
               # START SMOOTHIE TABLE
@@ -49,29 +39,20 @@ if ($name != ""){
     echo "</div>";
 }
 else{
-  if (!($stmt = $mysqli->prepare("SELECT name FROM Smoothie"))) {
+  if (!($stmt = $mysqli->prepare("SELECT smoothie_name FROM Smoothie"))) {
       echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
   }
-
   $stmt->bind_param("s", $name);
-
-
   if (!$stmt->execute()) {
       echo "Execute failed: (" . $mysqli->errno . ") " . $mysqli->error;
   }
-
   if (!$stmt->bind_result($name)) {
       echo "Binding output parameters failed: (" . $stmt->errno . ") " . $stmt->error;
   }
-
-
-
   echo "<h4> Smoothie Results </h4>";
   echo "<br><br>";
   echo "<div class='container'>";
     echo "<div class='row centered'>";
-
-
         while($stmt->fetch()) {
             echo "<div class='col-lg-4'>";
               # START SMOOTHIE TABLE

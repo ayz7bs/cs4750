@@ -84,7 +84,7 @@
             <li><a href="index.php">HOME</a></li>
             <li><a href="about.html">ABOUT</a></li>
             <li class="active"><a href="search_index.php">SEARCH</a></li>
-            <li><a href="create.php">CREATE</a></li>
+            <li><a href="create.html">CREATE</a></li>
             <li><a href="profile.php">PROFILE</a></li>
             <li><a href="logout.php">LOGOUT</a></li>
             <!--<li><a data-toggle="modal" data-target="#myModal" href="#myModal"><i class="fa fa-envelope-o"></i></a></li>-->
@@ -139,7 +139,7 @@
 				    for ($i=0;$i<$num_results;$i++) {
 				        $row = mysqli_fetch_array($result);
 				        $type = $row['type'];
-				        echo '<option value="' .$type. '">' .$type. '</option>';
+				        echo '<option value="' .$type. '">No ' .$type. '</option>';
 				    }
 				    echo '</select>';
 				    echo '</label>';
@@ -270,7 +270,7 @@
 			if (!$stmt->execute()) {
 			    echo "Execute failed: (" . $mysqli->errno . ") " . $mysqli->error;
 			}
-			if (!$stmt->bind_result($id, $smoothie_name)) {
+			if (!$stmt->bind_result($id, $name)) {
 			    echo "Binding output parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 			}
 			echo "<h4> Available Smoothies</h4>";
@@ -282,13 +282,13 @@
 			          	# START SMOOTHIE TABLE
 			            echo "<div class='pricing-option'>";
 			             	echo "<div class='pricing-top'>";
-			                    echo "<span class='pricing-edition'>" . $smoothie_name . "</span>";
+			                    echo "<span class='pricing-edition'>" . $name . "</span>";
 			                echo "</div>";
 			                     echo "<ul>";
 			                       	echo "<li><strong>Location</strong></li>";
 								 echo "</ul>";
 								 # change to url to show smoothie information
-			                echo "<a href='smoothie.php?smoothie_id=$id' class='pricing-signup'>SELECT</a>";
+			                echo "<a href='search.html?smoothie_id=$id' class='pricing-signup'>SELECT</a>";
 			            echo "</div>"; # /pricing-option
 			        # END SMOOTHIE TABLE
 					echo "</div>"; # /col 		
@@ -342,7 +342,7 @@
 						hi@blacktie.co
 		        	</p>
 		        	<div id="mapwrap">
-		<iframe height="300" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+		<iframe height="300" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.es/maps?t=m&amp;ie=UTF8&amp;ll=52.752693,22.791016&amp;spn=67.34552,156.972656&amp;z=2&amp;output=embed"></iframe>
 					</div>	
 		        </div>
 	      </div>
