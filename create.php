@@ -80,7 +80,7 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 	<div class="container desc">
 		<div class="row">
 			<br><br>
-			<div class="col-lg-6">
+			<div class="col-lg-4">
 			<form action="create_smoothie.php" method="GET">
 				<h4>SMOOTHIE NAME</h4>
 					<div class="input-group">
@@ -92,7 +92,10 @@ $others = array("Ice Cubes" => 24, "Chia Seeds" => 25, "Peanut Butter"=> 26, "Yo
 				</p>
 			
 			</div>
-			<div class="col-lg-6">
+			
+			<div class="col-lg-4"></div>
+			
+			<div class="col-lg-4">
 			<form action="create_smoothie.php" method="GET">
 				<h4>LOCATION</h4>
 					<div class="input-group-btn">

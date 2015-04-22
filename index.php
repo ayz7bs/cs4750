@@ -84,7 +84,7 @@ header("location:login.php");
 			<div class="col-lg-4">
 				<i class="fa fa-heart"></i>
 				<h4>HEART HEALTH</h4>
-				<p>Nutritional info for all smoothies is provied. Find something yummy and healthy!</p>
+				<p>Nutritional info for all smoothies is provided. Find something yummy and healthy!</p>
 			</div><!-- col-lg-4 -->
 
 			<div class="col-lg-4">
@@ -95,8 +95,8 @@ header("location:login.php");
 
 			<div class="col-lg-4">
 				<i class="fa fa-trophy"></i>
-				<h4>RATE</h4>
-				<p>Rate or create. Have a homemade smoothie of your own? Share it on our system.</p>
+				<h4>CREATE</h4>
+				<p>Share your own award winning smoothie.</p>
 			</div><!-- col-lg-4 -->
 		</div><!-- row -->
 		<br>
