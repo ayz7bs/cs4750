@@ -179,10 +179,6 @@ if (!$stmt->bind_result($username, $smoothie_id)) {
 						type: 'GET',
 						data: {smoothie_id: <?=$smoothie_id?>, username: '<?echo $_SESSION["user"]?>' },
 						success: function(data){
-							// clear current div
-							// $('#dg').empty();
-							
-							// show new data
 							
 							$('#message').html(data);
 							if(data.indexOf('added') != -1) {
@@ -194,6 +190,24 @@ if (!$stmt->bind_result($username, $smoothie_id)) {
 							
 						}
 					});
+				});
+				
+				
+				$("#remove").click(function(){
+					if (confirm("Are you sure you want to delete this smoothie?")) {
+						$.ajax({
+						url: 'remove.php',
+						type: 'GET',
+						data: {smoothie_id: <?=$smoothie_id?> },
+						success: function(data){
+							alert("Smoothie has been deleted! Now returning to search index.");
+							window.location.replace("search_index.php");
+							//$('#message').html(data);
+						}
+
+					 });
+						
+					}
 				});
 				
 				
@@ -248,7 +262,18 @@ if (!$stmt->bind_result($username, $smoothie_id)) {
 	<div class="container desc">
 	<h2><strong><?=$smoothie_name?> <button <? if ($favorite) { ?> style="color: #ff7878" <? } ?> id="favoriteHeart" type="button" class="btn btn-primary raised btn-sm" <? if (!$favorite) { ?> data-toggle="tooltip" data-placement="right" title="Add to favorites." <? } ?> >
   <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-</button></strong></h2>
+</button>
+
+
+<? if ($_SESSION["$admin_status"]) { ?>
+<button id="remove" type="button" class="btn btn-primary raised btn-sm pull-right" data-toggle="tooltip" data-placement="right" title="Delete smoothie." >
+  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+</button>
+<? } ?>
+
+ 
+</strong> </h2>
+
 <hr>
 	<div id="message"></div>
 	<br>

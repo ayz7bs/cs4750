@@ -457,6 +457,10 @@ a:after {
 	font-size: 17px;
 }
 
+.glyphicon-trash {
+	font-size: 17px;
+}
+
 #favoriteHeart {
 	border: 0px;
 }
@@ -483,3 +487,6 @@ a:after {
 	color: #ff7878;
 }
 
+.left-padding {
+	padding-left: 5px;
+}
