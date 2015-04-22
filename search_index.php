@@ -60,6 +60,20 @@
 						}
 					});
 				});
+				$("#place").change(function(){
+					$.ajax({
+						url: 'place_search.php',
+						type: 'GET',
+						data: {type: $("#place").val()},
+						success: function(data){
+							// clear current div
+							$('#dg').empty();
+							
+							// show new data
+							$('#dg').html(data);
+						}
+					});
+				});
 			});
  
 		</script>
@@ -84,7 +98,7 @@
             <li><a href="index.php">HOME</a></li>
             <li><a href="about.html">ABOUT</a></li>
             <li class="active"><a href="search_index.php">SEARCH</a></li>
-            <li><a href="create.html">CREATE</a></li>
+            <li><a href="create.php">CREATE</a></li>
             <li><a href="profile.php">PROFILE</a></li>
             <li><a href="logout.php">LOGOUT</a></li>
             <!--<li><a data-toggle="modal" data-target="#myModal" href="#myModal"><i class="fa fa-envelope-o"></i></a></li>-->
@@ -116,16 +130,15 @@
 	      </span>
 	    </div><!-- /input-group -->
 	  </div><!-- /.col-lg-8 -->
-	  <div class="col-lg-2"></div>
 	  
 	</div><!-- /.row --> 
 	<br/>
 	<div class="row centered">
-		<h4><b>DIETARY RESTRICTION?</b></h4>
+		 <div class="col-lg-6"><h4><b>DIETARY RESTRICTION?</b></h4></div>
+		 <div class="col-lg-4"><h4><b>LOCATION</b></h4></div>
 	</div>
-	<div class="row">
-		 <div class="col-lg-5"></div>
-		 <div class="col-lg-2">
+		 <div class="col-lg-2"></div>
+		 <div class="col-lg-5">
 
 		
 			<?php
@@ -140,6 +153,29 @@
 				        $row = mysqli_fetch_array($result);
 				        $type = $row['type'];
 				        echo '<option value="' .$type. '">No ' .$type. '</option>';
+				    }
+				    echo '</select>';
+				    echo '</label>';
+				}
+				mysqli_close($link);
+			?>
+		</div>
+
+		<div class="col-lg-5">
+
+		
+			<?php
+				$link = mysqli_connect("stardock.cs.virginia.edu","cs4750ayz7bs","cs4750","cs4750ayz7bs");
+				$sql = "SELECT distinct place_name FROM Place;";
+				$result = mysqli_query($link,$sql);
+				if ($result != 0) {
+				    echo '<select name="type" id="place">';
+    				echo '<option value=></option>';
+				    $num_results = mysqli_num_rows($result);
+				    for ($i=0;$i<$num_results;$i++) {
+				        $row = mysqli_fetch_array($result);
+				        $type = $row['place_name'];
+				        echo '<option value="' .$type. '">' .$type. '</option>';
 				    }
 				    echo '</select>';
 				    echo '</label>';
@@ -288,7 +324,7 @@
 			                       	echo "<li><strong>Location</strong></li>";
 								 echo "</ul>";
 								 # change to url to show smoothie information
-			                echo "<a href='search.html?smoothie_id=$id' class='pricing-signup'>SELECT</a>";
+			                echo "<a href='smoothie.php?smoothie_id=$id' class='pricing-signup'>SELECT</a>";
 			            echo "</div>"; # /pricing-option
 			        # END SMOOTHIE TABLE
 					echo "</div>"; # /col 		

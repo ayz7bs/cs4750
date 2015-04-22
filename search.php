@@ -29,7 +29,7 @@ echo "<div class='container'>";
                         echo "<li><strong>Location</strong></li>";
            echo "</ul>";
            # change to url to show smoothie information
-                echo "<a href='search.html?smoothie_id=$id' class='pricing-signup'>SELECT</a>";
+                echo "<a href='smoothie.php?smoothie_id=$id' class='pricing-signup'>SELECT</a>";
             echo "</div>"; # /pricing-option
         # END SMOOTHIE TABLE
     echo "</div>"; # /col     

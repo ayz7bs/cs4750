@@ -5,7 +5,7 @@ if ($mysqli->connect_errno) {
 }
 $name = $_GET['type'];
 if ($name != ""){
-  if (!($stmt = $mysqli->prepare("select smoothie_name, smoothie_id from Smoothie where smoothie_name not in (SELECT smoothie_name FROM Smoothie Natural Join restricted Natural Join Dietary_Restriction WHERE type = ?)"))) {
+  if (!($stmt = $mysqli->prepare("SELECT smoothie_name, smoothie_id FROM Smoothie Natural Join sold_at Natural Join Place where place_name = ?"))) {
       echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
   }
   $stmt->bind_param("s", $name);
