@@ -130,8 +130,10 @@ $place_name = trim($place_name_test);
 	      $smoothie_added = False;
       }
   }
-  }}}{
-	  $smoothie_added = False;
+  }}}}
+  
+  else{
+  $smoothie_added = False;
   }
   
   // Add a bookmark?
