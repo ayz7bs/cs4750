@@ -11,13 +11,13 @@
  $calcium = $_GET['calcium'];
  
   // Array for storing ingredient amoungs
- $amounts = array();
+ $amounts = array(); 
  // Create amounts varchar
  foreach($_GET['quantity'] as $index => $quantity){
-	 if($quantity != ""){
+	 if($quantity != "" && is_numeric($quantity)){
 		array_push($amounts, $quantity . " " . $_GET['measurement'][$index] );
-	 }
- }
+	 } 
+ } 
  // Array for storing ingredeints and amounts
  $ingredients = array();
  
