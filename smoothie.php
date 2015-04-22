@@ -265,7 +265,7 @@ if (!$stmt->bind_result($username, $smoothie_id)) {
 </button>
 
 
-<? if ($_SESSION["$admin_status"]) { ?>
+<? if ($_SESSION["admin"]) { ?>
 <button id="remove" type="button" class="btn btn-primary raised btn-sm pull-right" data-toggle="tooltip" data-placement="right" title="Delete smoothie." >
   <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 </button>
