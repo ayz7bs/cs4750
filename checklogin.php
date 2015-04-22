@@ -44,7 +44,10 @@ $_SESSION['admin'] = "$admin_status";
 header("location:index.php");
 }
 else {
-echo "Wrong Username or Password";
+echo '
+        <script type="text/javascript">
+            alert("Incorrect login"); 
+            window.location.href = "login.php";</script>';
 }
 ob_end_flush();
 
