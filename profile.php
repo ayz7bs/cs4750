@@ -130,7 +130,9 @@ $stmt -> store_result();
 		<div class="row centered">
 			<br><br>
 			<h1> If you are aren't an admin you shouldn't see this</h1>
-			<a href="export.php">Export All Smoothies</a>
+			<button class="btn btn-link" value="export.php">Export All Smoothies</button>
+
+            <!--<a href="export.php">Export All Smoothies</a>
 			
 			
 			<!--<button id = "totoggle">Display Tables</button>
@@ -153,6 +155,7 @@ $stmt -> store_result();
 	  <div class="panel panel-primary">
     <div class="panel-heading admin-panel">
       <h4 class="panel-title admin-panel">
+
         <a class="accordion-toggle collapsed admin-panel" data-toggle="collapse" data-parent="#accordion" href="#collapse">Display Database Tables</a>
       </h4>
     </div>
