@@ -26,9 +26,7 @@ if ($name != ""){
                 echo "<div class='pricing-top'>";
                       echo "<span class='pricing-edition'>" . $name . "</span>";
                   echo "</div>";
-                       echo "<ul>";
-                          echo "<li><strong>Location</strong></li>";
-             echo "</ul>";
+                       
              # change to url to show smoothie information
                   echo "<a href='smoothie.php?smoothie_id=$id' class='pricing-signup'>SELECT</a>";
               echo "</div>"; # /pricing-option
@@ -60,9 +58,7 @@ else{
                 echo "<div class='pricing-top'>";
                       echo "<span class='pricing-edition'>" . $name . "</span>";
                   echo "</div>";
-                       echo "<ul>";
-                          echo "<li><strong>Location</strong></li>";
-             echo "</ul>";
+                       
              # change to url to show smoothie information
                   echo "<a href='smoothie.php?smoothie_id=$id' class='pricing-signup'>SELECT</a>";
               echo "</div>"; # /pricing-option
