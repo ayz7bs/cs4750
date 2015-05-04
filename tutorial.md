@@ -14,8 +14,9 @@
 3. [An example layout](#example)
 
 
-< a name = "intro" />
-<b>Introduction</b>
+
+<a name = "intro" />
+###Introduction
 --------------------
 
 <h4>What is forem?</h4>
@@ -24,10 +25,11 @@ Forem is an engine for rails application that provides a simple forum system. Th
 ----------
 
 < a name = "install" />
-Installation
+###Installation
 -------------
 
 < a name = "gems" />
+####**Install Gems**
 Install these gems in your application. A way to do this is to edit the Gemfile of your application and run bundle install. 
 
 If you are using Rails 3:
