@@ -64,7 +64,7 @@ To make Forem's forum list the root path of your application add these lines of 
 > root :to => "forem/forums#index"
 
 
-![Display on Command line ](http://drive.google.com/uc?export=view&id=0B5hPtk8a_KEkOFlIRFhSc281eDg) "Forem set up")
+![Display on Command line ]((http://drive.google.com/uc?export=view&id=0B5hPtk8a_KEkRUxVdTlHN0ktZUk "Forem set up")
  
 <h4><strong>Setting up Administration</strong></h4>
 
@@ -90,7 +90,7 @@ In application.html.erb:
 </header>
 ``` 
 
-![Display on Command line ](https://drive.google.com/file/d/0B5hPtk8a_KEkNS1LR2hUSHJtdGc/view?usp=sharing "Administration set up")
+![Display on Command line ]((http://drive.google.com/uc?export=view&id=0B5hPtk8a_KEkNS1LR2hUSHJtdGc "Administration set up")
 
 Now, to set up forem, you need to add methods in your user.rb:
 For example, to display email add of user: 
@@ -129,9 +129,10 @@ In your vendor/assets/stylesheets/forem.css.scss; add this line to
 
 This will import Bootstrap theme for Forem in your application. We have already added the bootrstrap gem for forem in our Gemfile in the beginning. 
 
-![Display on Command line ](https://drive.google.com/file/d/0B5hPtk8a_KEkdDRlbzFZUkR2UDg/view?usp=sharing "Main Screen")
+![Display on Command line ](http://drive.google.com/uc?export=view&id=0B5hPtk8a_KEkdDRlbzFZUkR2UDg "Main Screen")
 
-![Display on Command line ](https://drive.google.com/file/d/0B5hPtk8a_KEkUW1vd01rd3VKNzg/view?usp=sharing "Main Screen")
+
+![Display on Command line ](http://drive.google.com/uc?export=view&id=0B5hPtk8a_KEkUW1vd01rd3VKNzg "New Forum")
 
 
 
