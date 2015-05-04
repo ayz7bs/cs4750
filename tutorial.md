@@ -1,8 +1,5 @@
-
-
-
-<b>Installing Forem gem in a Rails App</b>
-=============================
+Installing Forem gem in a Rails App
+===================================
 
 1. [Introduction](#intro)
 2. [Installation](#install)
