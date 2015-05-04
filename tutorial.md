@@ -130,8 +130,8 @@ end
 Open up vendor/assets/javascripts/forem.coffee.js and remove the following line of code:
 > //= require jquery
 
-< a name = "theme" />
-<h4><strong>Basic Forem Assets & Themes </strong></h4>
+<a name = "theme" />
+####**Forem Assets and Themes** 
 
 To load javascript files, add this line to your application.js file 
 
@@ -153,7 +153,7 @@ This will import Bootstrap theme for Forem in your application. We have already 
 ![Display on Command line ](http://drive.google.com/uc?export=view&id=0B5hPtk8a_KEkdDRlbzFZUkR2UDg)
 
 New Topic layout..
-![Display on Command line ](http://drive.google.com/uc?export=view&id=/0B5hPtk8a_KEkdFg3ME8wUUZzYzQ)
+![Display on Command line ](http://drive.google.com/uc?export=view&id=0B5hPtk8a_KEkdFg3ME8wUUZzYzQ)
 
 And you are done! 
 
