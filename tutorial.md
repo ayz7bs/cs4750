@@ -24,11 +24,11 @@ Forem is an engine for rails application that provides a simple forum system. Th
 
 ----------
 
-< a name = "install" />
+<a name = "install" />
 ###Installation
 -------------
 
-< a name = "gems" />
+<a name = "gems" />
 ####**Install Gems**
 Install these gems in your application. A way to do this is to edit the Gemfile of your application and run bundle install. 
 
@@ -47,8 +47,8 @@ For pagination:
 >or
 >gem 'kaminari'
 
-< a name = "devise" />
-<h4><strong>Setting up Authentication</strong></h4>
+<a name = "devise" />
+####**Setting up Authentication**
 For user authentication, Forem let you choose any system or you can develop your own. One option is to use Devise. It is a great authentication system developed by Plataformatec. Integrating Devise in a rails application is very easy. 
 
 To install Devise; include this gem in the Gemfile and run bundle install. 
@@ -68,8 +68,8 @@ Now prepare the model and run the migrations :
 To copy Devise views (for customization), run this command:
 > rails g devise:views
 
-< a name = "forem" />
-<h4><strong>Installing Forem</strong></h4>
+<a name = "forem" />
+####**Installing Forem**
 Now run the installer to install forem and answer any questions that are prompted. :
 > rails g forem:install
 
@@ -83,8 +83,8 @@ To make Forem's forum list the root path of your application add these lines of 
 
 ![Display on Command line ](http://drive.google.com/uc?export=view&id=0B5hPtk8a_KEkRUxVdTlHN0ktZUk)
  
- < a name = "admin" />
-<h4><strong>Setting up Administration</strong></h4>
+ <a name = "admin" />
+####**Setting up Administration**
 
 Forem does not come with a set header, you can customize it in your application in any way you want. For a demo; you can just use the following code:
 
@@ -148,8 +148,8 @@ In your vendor/assets/stylesheets/forem.css.scss; add this line to
 
 This will import Bootstrap theme for Forem in your application. We have already added the bootrstrap gem for forem in our Gemfile in the beginning. 
 
-< a name = "example" />
-An example: home page
+<a name = "example" />
+###An example: home page
 ![Display on Command line ](http://drive.google.com/uc?export=view&id=0B5hPtk8a_KEkdDRlbzFZUkR2UDg)
 
 New Topic layout..
