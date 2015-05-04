@@ -148,12 +148,14 @@ In your vendor/assets/stylesheets/forem.css.scss; add this line to
 
 This will import Bootstrap theme for Forem in your application. We have already added the bootrstrap gem for forem in our Gemfile in the beginning. 
 
+And you are done! 
+
 <a name = "example" />
 ###An example: home page
 ![Display on Command line ](http://drive.google.com/uc?export=view&id=0B5hPtk8a_KEkdDRlbzFZUkR2UDg)
 
-New Topic layout..
+New Topic layout.
 ![Display on Command line ](http://drive.google.com/uc?export=view&id=0B5hPtk8a_KEkdFg3ME8wUUZzYzQ)
 
-And you are done! 
+
 
