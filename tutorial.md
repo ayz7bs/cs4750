@@ -41,9 +41,9 @@ To install Devise; include this gem in the Gemfile and run bundle install.
 Now run the Devise generator on command line:
 >rails generate devise:install
 
-After the installation, you will be presented with the following screen. Please make sure to do this setup if you have not done already. 
- 
- ![Display on Command line ](https://drive.google.com/file/d/0B5hPtk8a_KEkNUNTbmRpcE1Famc/view?usp=sharing "Devise set up")
+After the installation, you will be presented with the following screen. Please make sure to do this setup if you have not done already.
+
+![Devise Set up ](http://drive.google.com/uc?export=view&id=0B5hPtk8a_KEkOFlIRFhSc281eDg)
 
 Now prepare the model and run the migrations :
 > rails generate devise User
@@ -64,7 +64,7 @@ To make Forem's forum list the root path of your application add these lines of 
 > root :to => "forem/forums#index"
 
 
-![Display on Command line ](https://drive.google.com/file/d/0B5hPtk8a_KEkRUxVdTlHN0ktZUk/view?usp=sharing "Forem set up")
+![Display on Command line ](http://drive.google.com/uc?export=view&id=0B5hPtk8a_KEkOFlIRFhSc281eDg) "Forem set up")
  
 <h4><strong>Setting up Administration</strong></h4>
 
